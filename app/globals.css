@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --oh-orange: #E05A1E; }
+html, body { background: #0f0f0f; color: #fff; }
