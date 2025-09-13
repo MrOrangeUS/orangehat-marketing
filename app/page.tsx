@@ -1,1 +1,0 @@
-export default function Page(){return(<main className='text-white bg-black min-h-screen flex items-center justify-center'>Orange Hat Marketing Site</main>)}
