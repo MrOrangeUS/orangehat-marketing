@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --oh-orange: #E05A1E; }
+html, body { background: #0f0f0f; color: #fff; }
+
+/* Orange pill button styles */
+.oh-pill {
+  --o: var(--oh-orange);
+  padding: 0.85rem 1.4rem;
+  border-radius: 9999px;
+  background:
+    radial-gradient(120% 80% at 50% 110%, rgba(255,255,255,0.12), transparent),
+    linear-gradient(90deg, color-mix(in oklab, var(--o), white 8%), var(--o));
+  color: #fff;
+  font-weight: 700;
+  transition: transform .25s ease, box-shadow .25s ease, background .35s ease;
+  box-shadow: 0 8px 30px rgba(224,90,30,.35);
+  position: relative;
+  overflow: hidden;
+}
+.oh-pill::before {
+  content: "";
+  position: absolute;
+  inset: -200%;
+  background:
+    radial-gradient(60% 60% at 50% 50%, rgba(255,165,0,.18), transparent 60%),
+    conic-gradient(from 0deg, transparent 0 42deg, rgba(255,165,0,.35) 42deg 318deg, transparent 318deg 360deg);
+  transform: rotate(22deg);
+  transition: transform .6s ease;
+  opacity: .35;
+}
+.oh-pill:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(224,90,30,.55);
+}
+.oh-pill:hover::before {
+  transform: rotate(382deg);
+}
