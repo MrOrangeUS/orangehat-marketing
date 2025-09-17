@@ -1,0 +1,21 @@
+{
+  "name": "Orangehat Marketing",
+  "short_name": "Orangehat",
+  "description": "AI-driven lead management, creative services, and social media management for growing businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#E05A1E",
+  "icons": [
+    {
+      "src": "assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
