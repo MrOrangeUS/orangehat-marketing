@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Hat brim -->
+  <rect x="8" y="40" width="48" height="8" rx="4" fill="#E05A1E" />
+  <!-- Top of the hat: semi-circle -->
+  <path d="M16 40 A16 16 0 0 1 48 40 L48 28 A8 8 0 0 0 40 20 H24 A8 8 0 0 0 16 28 Z" fill="#E05A1E" />
+</svg>
