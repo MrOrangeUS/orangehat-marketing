@@ -56,7 +56,7 @@ export default function Home() {
 
   const handleBookDemo = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    const calendlyUrl = 'https://calendly.com/orangehatmarketing/demo';
+  const calendlyUrl = 'https://getorangehat.ai';
     window.open(calendlyUrl, '_blank');
   };
 
