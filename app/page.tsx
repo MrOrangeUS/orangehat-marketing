@@ -80,7 +80,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section id="hero" classNamrelative z-10 e="hero-section pt-32 pb-32 flex items-center justify-center text-center">
+      <section id="hero" className="relative z-10 hero-section pt-32 pb-32 flex items-center justify-center text-center">
         <div className="hero-content space-y-6 animate">
           <h1 className="text-5xl font-bold animate">Orangehat Marketing</h1>
           <p className="text-xl max-w-xl mx-auto animate">Grow your business with AI‑driven lead management, creative services, and social media that converts.</p>
