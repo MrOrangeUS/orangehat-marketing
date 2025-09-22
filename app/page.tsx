@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import MatrixRain from '../components/MatrixRain';
 
 export default function Home() {
   useEffect(() => {
@@ -62,7 +63,7 @@ export default function Home() {
 
   return (
     <main className="text-white bg-[#050505]">
-      {/* Header */}
+      <MatrixRain color="#E05A1E" density={20} />      {/* Header */}
       <header className="fixed w-full top-0 z-50 border-b border-[#1a1a1a] bg-[#050505]">
         <nav className="max-w-6xl mx-auto flex items-center justify-between p-4">
           <a href="#hero" className="flex items-center">
@@ -79,7 +80,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section id="hero" className="hero-section pt-32 pb-32 flex items-center justify-center text-center">
+      <section id="hero" classNamrelative z-10 e="hero-section pt-32 pb-32 flex items-center justify-center text-center">
         <div className="hero-content space-y-6 animate">
           <h1 className="text-5xl font-bold animate">Orangehat Marketing</h1>
           <p className="text-xl max-w-xl mx-auto animate">Grow your business with AI‑driven lead management, creative services, and social media that converts.</p>
