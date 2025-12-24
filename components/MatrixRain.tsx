@@ -5,8 +5,8 @@ export default function MatrixRain({
   glyph = "01ΩΞ₪⟁∴",
   color = "#E05A1E",
   density = 20,
-  speed = 0.22,              // crawl speed (0.10–0.35)
-  injectChance = 0.006,      // buzzword frequency (0.003–0.02)
+  speed = 0.1,              // crawl speed (0.10–0.35)
+  injectChance = 0.02,      // buzzword frequency (0.003–0.02)
   trail = 0.32,              // higher = less smear (0.22–0.55)
 }: {
   glyph?: string;
