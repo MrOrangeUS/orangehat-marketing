@@ -5,7 +5,7 @@ export default function MatrixRain({
   glyph = "01ΩΞ₪⟁∴",
   color = "#12ff9c",
   density = 20,
-  speed = 0.25,        // smaller values slow the rain
+  speed = 0.15,        // smaller values slow the rain
 }: {
   glyph?: string;
   color?: string;
