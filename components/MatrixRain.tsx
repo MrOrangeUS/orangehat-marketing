@@ -20,7 +20,7 @@ export default function MatrixRain({
   color = "#E05A1E",
   density,                   // ✅ accept density
   fontSize,                  // keep fontSize too
-  speed = 0.1,
+  speed = 0.5,
   tailLength = 14,
   injectChance = 0.004,
   background = "rgb(0,0,0)",
