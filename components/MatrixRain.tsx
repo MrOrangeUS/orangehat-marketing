@@ -5,9 +5,9 @@ export default function MatrixRain({
   glyph = "01ΩΞ₪⟁∴",
   color = "#12ff9c",
   density = 20,
-  speed = 0.15,
+  speed = 0.05,
   messages = DEFAULT_MARKETING_MESSAGES,
-  messageChance = 0.012, // ~1.2% per column per frame (tune down to hide more)
+  messageChance = 0.1, // ~10% per column per frame (tune down to hide more)
 }: {
   glyph?: string;
   color?: string;
