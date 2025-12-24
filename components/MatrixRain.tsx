@@ -4,23 +4,31 @@ import { useEffect, useRef } from "react";
 type Props = {
   color?: string;
   glyph?: string;
-  fontSize?: number;        // smaller = more dense (try 12–16)
-  speed?: number;           // drip speed in rows/frame (0.10–0.35)
-  tailLength?: number;      // length of the drip tail (8–20)
-  injectChance?: number;    // buzzword start chance per column per frame (0.001–0.01)
-  background?: string;      // solid background clear
+
+  // ✅ New: keep backwards compatibility
+  density?: number;          // alias for fontSize (old prop)
+
+  fontSize?: number;         // smaller = more dense (try 12–16)
+  speed?: number;            // drip speed in rows/frame (0.10–0.35)
+  tailLength?: number;       // length of the drip tail (8–20)
+  injectChance?: number;     // buzzword start chance per column per frame (0.001–0.01)
+  background?: string;       // solid background clear
 };
 
 export default function MatrixRain({
   glyph = "01ΩΞ₪⟁∴",
   color = "#E05A1E",
-  fontSize = 13,
+  density,                   // ✅ accept density
+  fontSize,                  // keep fontSize too
   speed = 0.18,
   tailLength = 14,
   injectChance = 0.004,
   background = "rgb(0,0,0)",
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
+
+  // ✅ density maps to effective fontSize; preserves old usage
+  const fs = fontSize ?? density ?? 13;
 
   useEffect(() => {
     const canvas = ref.current!;
@@ -66,7 +74,7 @@ export default function MatrixRain({
     const pick = <T,>(arr: T[]) => arr[(Math.random() * arr.length) | 0];
 
     // Column width slightly tighter than fontSize for more density
-    const colWidth = Math.max(8, Math.floor(fontSize * 0.9));
+    const colWidth = Math.max(8, Math.floor(fs * 0.9));
 
     type Col = {
       y: number;                 // float row position
@@ -103,8 +111,9 @@ export default function MatrixRain({
     function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
       cols = Math.floor(canvas.width / colWidth);
-      rows = Math.floor(canvas.height / fontSize);
+      rows = Math.floor(canvas.height / fs);
 
       columns = Array.from({ length: cols }, () => {
         const stream = Array.from({ length: tailLength }, randGlyph);
@@ -128,7 +137,7 @@ export default function MatrixRain({
       ctx.fillStyle = background;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.font = `700 ${fontSize}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`;
+      ctx.font = `700 ${fs}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`;
       ctx.textBaseline = "top";
 
       for (let i = 0; i < columns.length; i++) {
@@ -162,8 +171,8 @@ export default function MatrixRain({
         const x = i * colWidth;
 
         for (let t = 0; t < col.stream.length; t++) {
-          const y = (rowNow - t) * fontSize;
-          if (y < -fontSize || y > canvas.height + fontSize) continue;
+          const y = (rowNow - t) * fs;
+          if (y < -fs || y > canvas.height + fs) continue;
 
           // Solid opacity gradient down the tail (still crisp because full clear)
           const alpha = t === 0 ? 1 : Math.max(0.15, 1 - t / (tailLength * 1.05));
@@ -184,7 +193,7 @@ export default function MatrixRain({
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
-  }, [glyph, color, fontSize, speed, tailLength, injectChance, background]);
+  }, [glyph, color, fs, speed, tailLength, injectChance, background]);
 
   return (
     <canvas
@@ -194,7 +203,7 @@ export default function MatrixRain({
         inset: 0,
         zIndex: 0,
         pointerEvents: "none",
-        opacity: 0.28, // overall layer opacity; characters remain crisp
+        opacity: 0.28,
       }}
     />
   );
