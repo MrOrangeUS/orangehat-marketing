@@ -1,21 +1,25 @@
 "use client";
 import { useEffect, useRef } from "react";
 
+type Props = {
+  color?: string;
+  glyph?: string;
+  fontSize?: number;        // smaller = more dense (try 12–16)
+  speed?: number;           // drip speed in rows/frame (0.10–0.35)
+  tailLength?: number;      // length of the drip tail (8–20)
+  injectChance?: number;    // buzzword start chance per column per frame (0.001–0.01)
+  background?: string;      // solid background clear
+};
+
 export default function MatrixRain({
   glyph = "01ΩΞ₪⟁∴",
   color = "#E05A1E",
-  density = 20,
-  speed = 0.1,              // crawl speed (0.10–0.35)
-  injectChance = 0.02,      // buzzword frequency (0.003–0.02)
-  trail = 0.32,              // higher = less smear (0.22–0.55)
-}: {
-  glyph?: string;
-  color?: string;
-  density?: number;
-  speed?: number;
-  injectChance?: number;
-  trail?: number;
-}) {
+  fontSize = 13,
+  speed = 0.18,
+  tailLength = 14,
+  injectChance = 0.004,
+  background = "rgb(0,0,0)",
+}: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -23,25 +27,19 @@ export default function MatrixRain({
     const ctx = canvas.getContext("2d")!;
     let raf = 0;
 
-    // Make canvas crisp
+    // Crisp rendering
     (ctx as any).imageSmoothingEnabled = false;
 
-    // Vertical “buzzword columns” – each column can temporarily render a word vertically
-    type ColumnState = { word: string | null; idx: number; cooldown: number };
-    let cols = 0;
-    let drops: number[] = [];
-    let colState: ColumnState[] = [];
-
     const BUZZWORDS = [
-      "AI AUTOMATION",
-      "LEAD GEN",
+      "AIAUTOMATION",
+      "LEADGEN",
       "CONVERSION",
       "RETARGETING",
       "FUNNELS",
       "PIPELINE",
       "CRM",
-      "BOOK MORE CALLS",
-      "INBOUND LEADS",
+      "BOOKMORECALLS",
+      "INBOUNDLEADS",
       "OUTBOUND",
       "APPOINTMENTS",
       "ROI",
@@ -53,105 +51,128 @@ export default function MatrixRain({
       "OMNICHANNEL",
       "ATTRIBUTION",
       "ANALYTICS",
-      "AB TEST",
-      "LANDING PAGES",
-      "EMAIL SEQUENCES",
+      "ABTEST",
+      "LANDINGPAGES",
+      "EMAILSEQUENCES",
       "WORKFLOWS",
-      "FOLLOW UP",
+      "FOLLOWUP",
       "NURTURE",
       "QUALIFY",
-      "CHAT AGENTS",
-      "24 7 SALES",
-      "LOCAL DOMINATION",
+      "CHATAGENTS",
+      "SALES247",
+      "LOCALDOMINATION",
     ];
 
-    const pick = (arr: string[]) => arr[(Math.random() * arr.length) | 0];
+    const pick = <T,>(arr: T[]) => arr[(Math.random() * arr.length) | 0];
+
+    // Column width slightly tighter than fontSize for more density
+    const colWidth = Math.max(8, Math.floor(fontSize * 0.9));
+
+    type Col = {
+      y: number;                 // float row position
+      lastRow: number;           // last integer row drawn for updates
+      stream: string[];          // stable tail characters
+      word: string | null;       // active vertical buzzword
+      wordIdx: number;
+      cooldown: number;
+      speedJitter: number;
+    };
+
+    let cols = 0;
+    let rows = 0;
+    let columns: Col[] = [];
+
+    function randGlyph() {
+      return glyph[(Math.random() * glyph.length) | 0];
+    }
+
+    function nextChar(col: Col) {
+      // If we're injecting a buzzword, feed one letter per row
+      if (col.word) {
+        const ch = col.word[col.wordIdx] ?? null;
+        col.wordIdx += 1;
+        if (col.wordIdx >= col.word.length) {
+          col.word = null;
+          col.wordIdx = 0;
+        }
+        return ch ?? randGlyph();
+      }
+      return randGlyph();
+    }
 
     function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      cols = Math.floor(canvas.width / colWidth);
+      rows = Math.floor(canvas.height / fontSize);
 
-      cols = Math.floor(canvas.width / density);
-      drops = Array(cols).fill(1);
-
-      // per-column word rendering state
-      colState = Array(cols)
-        .fill(null)
-        .map(() => ({ word: null, idx: 0, cooldown: 0 }));
+      columns = Array.from({ length: cols }, () => {
+        const stream = Array.from({ length: tailLength }, randGlyph);
+        return {
+          y: Math.random() * rows,
+          lastRow: -1,
+          stream,
+          word: null,
+          wordIdx: 0,
+          cooldown: (Math.random() * 120) | 0,
+          speedJitter: 0.7 + Math.random() * 0.8, // natural variance
+        };
+      });
     }
 
     resize();
     window.addEventListener("resize", resize);
 
     function draw() {
-      // Stronger fade = crisper characters, less blending
-      ctx.fillStyle = `rgba(0,0,0,${trail})`;
+      // FULL CLEAR each frame = zero blending/smear
+      ctx.fillStyle = background;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = color;
-      ctx.font = `600 ${density}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`;
+      ctx.font = `700 ${fontSize}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`;
+      ctx.textBaseline = "top";
 
-      for (let i = 0; i < drops.length; i++) {
-        const x = i * density;
-        const y = drops[i] * density;
+      for (let i = 0; i < columns.length; i++) {
+        const col = columns[i];
 
-        const state = colState[i];
-
-        // If we're not currently rendering a word in this column, maybe start one
-        if (!state.word && state.cooldown <= 0 && Math.random() < injectChance) {
-          // Make a compact vertical word: remove spaces, keep it short-ish
-          const raw = pick(BUZZWORDS).replace(/\s+/g, "");
-          const maxLen = 12;
-          state.word = raw.length > maxLen ? raw.slice(0, maxLen) : raw;
-          state.idx = 0;
-
-          // prevent spam in same column
-          state.cooldown = 120 + ((Math.random() * 120) | 0); // frames until next word allowed
+        // chance to start a buzzword (vertical, letter-by-letter)
+        if (!col.word && col.cooldown <= 0 && Math.random() < injectChance) {
+          col.word = pick(BUZZWORDS);
+          col.wordIdx = 0;
+          col.cooldown = 160 + ((Math.random() * 180) | 0);
         }
 
-        // Render either word (vertically) or normal glyph
-        if (state.word) {
-          // One letter per row, vertical in this same column
-          const ch = state.word[state.idx] ?? null;
+        // update row position smoothly
+        col.y += speed * col.speedJitter;
 
-          if (ch) {
-            ctx.save();
-            ctx.globalAlpha = 0.95;
-            ctx.shadowColor = color;
-            ctx.shadowBlur = 6; // subtle glow, still crisp due to stronger fade
-            ctx.fillText(ch, x, y);
-            ctx.restore();
-
-            state.idx += 1;
-
-            // If finished, stop rendering word (let rain continue normally)
-            if (state.idx >= state.word.length) {
-              state.word = null;
-              state.idx = 0;
-            }
-          } else {
-            state.word = null;
-            state.idx = 0;
-          }
-        } else {
-          // normal glyph
-          const char = glyph[(Math.random() * glyph.length) | 0];
-          ctx.save();
-          ctx.globalAlpha = 0.9;
-          ctx.shadowColor = "transparent";
-          ctx.shadowBlur = 0;
-          ctx.fillText(char, x, y);
-          ctx.restore();
+        // when we cross into a new row, advance the stable stream
+        const rowNow = Math.floor(col.y);
+        if (rowNow !== col.lastRow) {
+          col.stream.pop();
+          col.stream.unshift(nextChar(col));
+          col.lastRow = rowNow;
         }
 
-        // Reset drop randomly after it goes off screen
-        if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        // wrap around
+        if (col.y > rows + tailLength + 2) {
+          col.y = -Math.random() * tailLength;
+          col.lastRow = -1;
+        }
 
-        // Crawl speed: fractional increment
-        drops[i] += speed;
+        // render tail (solid)
+        const x = i * colWidth;
 
-        // Reduce cooldown
-        if (state.cooldown > 0) state.cooldown -= 1;
+        for (let t = 0; t < col.stream.length; t++) {
+          const y = (rowNow - t) * fontSize;
+          if (y < -fontSize || y > canvas.height + fontSize) continue;
+
+          // Solid opacity gradient down the tail (still crisp because full clear)
+          const alpha = t === 0 ? 1 : Math.max(0.15, 1 - t / (tailLength * 1.05));
+
+          ctx.fillStyle = withAlpha(color, alpha);
+          ctx.fillText(col.stream[t], x, y);
+        }
+
+        if (col.cooldown > 0) col.cooldown -= 1;
       }
 
       raf = requestAnimationFrame(draw);
@@ -163,7 +184,7 @@ export default function MatrixRain({
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
-  }, [glyph, color, density, speed, injectChance, trail]);
+  }, [glyph, color, fontSize, speed, tailLength, injectChance, background]);
 
   return (
     <canvas
@@ -173,8 +194,17 @@ export default function MatrixRain({
         inset: 0,
         zIndex: 0,
         pointerEvents: "none",
-        opacity: 0.26,
+        opacity: 0.28, // overall layer opacity; characters remain crisp
       }}
     />
   );
+}
+
+function withAlpha(hex: string, a: number) {
+  // supports #RRGGBB
+  const c = hex.replace("#", "");
+  const r = parseInt(c.slice(0, 2), 16);
+  const g = parseInt(c.slice(2, 4), 16);
+  const b = parseInt(c.slice(4, 6), 16);
+  return `rgba(${r},${g},${b},${a})`;
 }
