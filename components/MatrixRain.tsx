@@ -1,7 +1,17 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-export default function MatrixRain({ glyph = "01ΩΞ₪⟁∴", color = "#12ff9c", density = 20 }: { glyph?: string; color?: string; density?: number }) {
+export default function MatrixRain({
+  glyph = "01ΩΞ₪⟁∴",
+  color = "#12ff9c",
+  density = 20,
+  speed = 0.25,        // smaller values slow the rain
+}: {
+  glyph?: string;
+  color?: string;
+  density?: number;
+  speed?: number;
+}) {
   const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -32,17 +42,24 @@ export default function MatrixRain({ glyph = "01ΩΞ₪⟁∴", color = "#12ff9c
         const x = i * density;
         const y = drops[i] * density;
         ctx.fillText(text, x, y);
-        if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
+
+        // Reset drop when it goes off screen
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        // Slow down the fall by adding a fractional increment
+        drops[i] += speed;
       }
       raf = requestAnimationFrame(draw);
     }
+
     raf = requestAnimationFrame(draw);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
-  }, [glyph, color, density]);
+  }, [glyph, color, density, speed]);
 
   return (
     <canvas
@@ -52,7 +69,7 @@ export default function MatrixRain({ glyph = "01ΩΞ₪⟁∴", color = "#12ff9c
         inset: 0,
         zIndex: 0,
         pointerEvents: "none",
-        opacity: 0.22
+        opacity: 0.22,
       }}
     />
   );
