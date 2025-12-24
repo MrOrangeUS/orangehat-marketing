@@ -22,7 +22,7 @@ export default function MatrixRain({
   fontSize,                  // keep fontSize too
   speed = 0.05,
   tailLength = 14,
-  injectChance = 0.004,
+  injectChance = 0.009,
   background = "rgb(0,0,0)",
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
