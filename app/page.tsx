@@ -33,7 +33,6 @@ export default function Home() {
     };
   }, []);
 
-  // Booking destination (existing booking site/page)
   const CTA_URL = "https://getorangehat.ai";
 
   const openCta = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -44,9 +43,17 @@ export default function Home() {
   return (
     <main className="text-white bg-[#050505]">
       {/* Matrix background */}
-      <MatrixRain color="#E05A1E" density={12} injectChance={0.006} />
+      <MatrixRain
+        color="#E05A1E"
+        glyph="01ΩΞ₪⟁∴"
+        fontSize={12}
+        speed={0.16}
+        tailLength={16}
+        injectChance={0.008}
+        background="rgb(0,0,0)"
+      />
 
-      {/* Drift animation for the floating badge */}
+      {/* Badge drift */}
       <style>{`
         @keyframes floatBadge {
           0%   { transform: translate3d(0,0,0) rotate(-0.4deg); }
@@ -59,13 +66,11 @@ export default function Home() {
         }
       `}</style>
 
-      {/* Header (KEEP EXACTLY AS CURRENTLY IMPLEMENTED) */}
+      {/* HEADER (leave as-is) */}
       <header className="fixed w-full top-0 z-50 border-b border-[#1a1a1a] bg-[#050505]/90 backdrop-blur">
         <nav className="max-w-6xl mx-auto flex items-center justify-between p-4">
-          {/* Propaganda poster badge */}
           <a href={CTA_URL} onClick={openCta} className="flex items-center gap-3">
             <div className="badge-float drop-shadow-[0_0_14px_rgba(224,90,30,0.28)]">
-              {/* Put your file in /public as: /orange-hat-poster.png */}
               <img
                 src="/orange-hat-poster.png"
                 alt="Orange Hat"
@@ -112,7 +117,7 @@ export default function Home() {
             onClick={openCta}
             className="hidden md:inline-block bg-[#E05A1E] text-white px-4 py-2 rounded-full hover:bg-[#b9450e]"
           >
-            Book a Demo
+            Book a Strategy Call
           </a>
         </nav>
       </header>
@@ -120,16 +125,17 @@ export default function Home() {
       {/* HERO */}
       <section
         id="hero"
-        className="relative z-10 hero-section pt-32 pb-20 px-4 flex items-center justify-center text-center"
+        className="relative z-10 pt-32 pb-20 px-4 flex items-center justify-center text-center"
       >
-        <div className="max-w-4xl mx-auto space-y-6 animate">
+        <div className="max-w-5xl mx-auto space-y-6 animate">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight animate">
             A 24/7 Sales System for Construction &amp; Energy Companies.
           </h1>
 
           <p className="text-lg sm:text-xl text-white/85 max-w-3xl mx-auto animate">
-            We capture real on-site media, upgrade your website to convert, and install an AI agent + automated
-            follow-up so leads get answered, qualified, and booked—even when you’re on a job.
+            We capture real on-site media, upgrade your website to convert, and
+            install an AI agent + automated follow-up so leads get answered,
+            qualified, and booked—even when you’re on a job.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center animate">
@@ -152,6 +158,39 @@ export default function Home() {
           <p className="text-sm text-white/70 animate">
             Setup + monthly support. Built for busy crews. No “marketing mystery box.”
           </p>
+
+          {/* Industry imagery strip (PNG-only) */}
+          <div className="mt-10 animate">
+            <div className="mx-auto max-w-5xl grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { src: "/industry/roofing-crew.png", label: "Roofing" },
+                { src: "/industry/hvac-tech.png", label: "HVAC" },
+                { src: "/industry/solar-install.png", label: "Solar" },
+                { src: "/industry/luxury-renovation.png", label: "Construction" },
+              ].map((img) => (
+                <div
+                  key={img.src}
+                  className="relative rounded-xl overflow-hidden border border-[#1f1f1f] bg-[#0b0b0b]"
+                >
+                  <img
+                    src={img.src}
+                    alt={`${img.label} crew on site`}
+                    className="h-28 sm:h-32 w-full object-cover opacity-90"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
+                  <div className="absolute bottom-2 left-2 text-xs font-semibold tracking-wide text-white/90">
+                    {img.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-3 text-xs text-white/60">
+              Real crews. Real jobsites. Built for contractors who don’t sit at a desk all day.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -195,13 +234,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SYSTEM (keep existing nav link #services; add required anchor #system without breaking nav) */}
+      {/* SYSTEM */}
       <section
         id="services"
         className="relative z-10 py-16 px-4 max-w-6xl mx-auto"
         aria-labelledby="system-title"
       >
-        {/* Required anchor target */}
         <div id="system" />
 
         <div className="text-center mb-10">
@@ -213,42 +251,62 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
-          <div className="bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform">
-            <h3 className="text-xl font-semibold mb-2">On-Site Photo + Recording</h3>
-            <p className="text-white/80">
-              Real job-site visuals that build trust fast—so prospects feel confident choosing you before they ever
-              call.
-            </p>
+        <div className="grid gap-8 grid-cols-1 lg:grid-cols-5 items-start">
+          {/* Proof image */}
+          <div className="lg:col-span-2 bg-[#0b0b0b] border border-[#1f1f1f] rounded-2xl overflow-hidden animate">
+            <img
+              src="/industry/luxury-renovation.png"
+              alt="Construction crew renovating a luxury home interior"
+              className="w-full h-64 lg:h-full object-cover opacity-90"
+              loading="lazy"
+              draggable={false}
+            />
+            <div className="p-5">
+              <div className="text-sm font-semibold">Proof wins jobs.</div>
+              <p className="mt-1 text-sm text-white/70">
+                We capture real visuals that build trust, then turn your website into a conversion machine.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform">
-            <h3 className="text-xl font-semibold mb-2">Conversion Website Build (or Upgrade)</h3>
-            <p className="text-white/80">
-              Clear offer, proof, and calls-to-action—built to turn site visitors into booked estimates.
-            </p>
-          </div>
+          {/* Cards */}
+          <div className="lg:col-span-3 grid gap-6 grid-cols-1 md:grid-cols-2">
+            <div className="bg-[#1a1a1a] p-7 rounded-xl animate hover:-translate-y-1 transition-transform">
+              <h3 className="text-xl font-semibold mb-2">On-Site Photo + Recording</h3>
+              <p className="text-white/80">
+                Real job-site visuals that build trust fast—so prospects feel confident choosing you before they ever
+                call.
+              </p>
+            </div>
 
-          <div className="bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform">
-            <h3 className="text-xl font-semibold mb-2">AI Sales &amp; Support Agent</h3>
-            <p className="text-white/80">
-              Answers questions instantly, routes the right requests, and keeps leads engaged 24/7.
-            </p>
-          </div>
+            <div className="bg-[#1a1a1a] p-7 rounded-xl animate hover:-translate-y-1 transition-transform">
+              <h3 className="text-xl font-semibold mb-2">Conversion Website Build (or Upgrade)</h3>
+              <p className="text-white/80">
+                Clear offer, proof, and calls-to-action—built to turn site visitors into booked estimates.
+              </p>
+            </div>
 
-          <div className="bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform">
-            <h3 className="text-xl font-semibold mb-2">Automated Follow-Up</h3>
-            <p className="text-white/80">
-              Missed-call text back, email/SMS sequences, reminders, and simple qualification—so leads don’t go cold.
-            </p>
-          </div>
+            <div className="bg-[#1a1a1a] p-7 rounded-xl animate hover:-translate-y-1 transition-transform">
+              <h3 className="text-xl font-semibold mb-2">AI Sales &amp; Support Agent</h3>
+              <p className="text-white/80">
+                Answers questions instantly, routes the right requests, and keeps leads engaged 24/7.
+              </p>
+            </div>
 
-          <div className="bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform md:col-span-2">
-            <h3 className="text-xl font-semibold mb-2">Launch + Optimization</h3>
-            <p className="text-white/80">
-              We test everything—message, flow, conversion points—then optimize so performance improves month after
-              month.
-            </p>
+            <div className="bg-[#1a1a1a] p-7 rounded-xl animate hover:-translate-y-1 transition-transform">
+              <h3 className="text-xl font-semibold mb-2">Automated Follow-Up</h3>
+              <p className="text-white/80">
+                Missed-call text back, email/SMS sequences, reminders, and simple qualification—so leads don’t go cold.
+              </p>
+            </div>
+
+            <div className="bg-[#1a1a1a] p-7 rounded-xl animate hover:-translate-y-1 transition-transform md:col-span-2">
+              <h3 className="text-xl font-semibold mb-2">Launch + Optimization</h3>
+              <p className="text-white/80">
+                We test everything—message, flow, conversion points—then optimize so performance improves month after
+                month.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -302,7 +360,7 @@ export default function Home() {
         </ol>
       </section>
 
-      {/* WHO IT'S FOR (keep existing nav link #testimonials) */}
+      {/* WHO IT'S FOR */}
       <section
         id="testimonials"
         className="relative z-10 py-16 px-4 max-w-6xl mx-auto"
@@ -392,7 +450,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FINAL CTA (keep existing nav link #contact) */}
+      {/* FINAL CTA */}
       <section
         id="contact"
         className="relative z-10 py-20 px-4 max-w-4xl mx-auto text-center"
@@ -413,7 +471,7 @@ export default function Home() {
         </a>
       </section>
 
-      {/* Footer (KEEP EXACTLY AS CURRENTLY IMPLEMENTED) */}
+      {/* FOOTER (leave as-is) */}
       <footer className="bg-[#1a1a1a] py-8 relative z-10">
         <div className="max-w-6xl mx-auto text-center space-y-4">
           <p>&copy; 2025 Orangehat Marketing LLC. All rights reserved.</p>
