@@ -47,7 +47,7 @@ export default function Home() {
         color="#E05A1E"
         glyph="01ΩΞ₪⟁∴"
         fontSize={12}
-        speed={0.16}
+        speed={0.1}
         tailLength={16}
         injectChance={0.008}
         background="rgb(0,0,0)"
