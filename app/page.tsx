@@ -33,7 +33,7 @@ export default function Home() {
     };
   }, []);
 
-  const CTA_URL = "https://calendly.com/orangehat-marketing/30min?month=2025-12";
+  const CTA_URL = "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
   const openCta = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
