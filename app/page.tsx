@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import MatrixRain from "../components/MatrixRain";
 
@@ -10,6 +12,17 @@ export default function HomePage() {
 
   return (
     <main className="text-white bg-[#050505] min-h-screen flex flex-col">
+      {/* Matrix background (uses existing component signature) */}
+      <MatrixRain
+        color="#E05A1E"
+        glyph="01ΩΞ₪⛁∴"
+        fontSize={12}
+        speed={0.1}
+        tailLength={16}
+        injectChance={0.008}
+        background="rgb(0,0,0)"
+      />
+
       {/* Header */}
       <header className="sticky top-0 z-20 bg-[#050505]/80 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -18,50 +31,24 @@ export default function HomePage() {
           </Link>
 
           <nav className="hidden md:flex space-x-6 items-center text-sm">
-            <Link href="/solutions" className="hover:text-[--oh-orange]">
-              Solutions
-            </Link>
-            <Link href="/how-it-works" className="hover:text-[--oh-orange]">
-              How&nbsp;It&nbsp;Works
-            </Link>
-            <Link href="/add-ons" className="hover:text-[--oh-orange]">
-              Add-Ons
-            </Link>
-            <Link href="/industry" className="hover:text-[--oh-orange]">
-              Industries
-            </Link>
+            <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
+            <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
+            <Link href="/add-ons" className="hover:text-[--oh-orange]">Add-Ons</Link>
+            <Link href="/industry" className="hover:text-[--oh-orange]">Industries</Link>
           </nav>
 
-          <a
-            href={CTA_URL}
-            target="_blank"
-            rel="noopener"
-            className="oh-pill hidden md:inline-block"
-          >
+          <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill hidden md:inline-block">
             Book a Call
           </a>
         </div>
 
         {/* Mobile nav */}
         <nav className="flex md:hidden flex-wrap gap-x-4 gap-y-2 px-6 pb-4 text-sm">
-          <Link href="/solutions" className="hover:text-[--oh-orange]">
-            Solutions
-          </Link>
-          <Link href="/how-it-works" className="hover:text-[--oh-orange]">
-            How&nbsp;It&nbsp;Works
-          </Link>
-          <Link href="/add-ons" className="hover:text-[--oh-orange]">
-            Add-Ons
-          </Link>
-          <Link href="/industry" className="hover:text-[--oh-orange]">
-            Industries
-          </Link>
-          <a
-            href={CTA_URL}
-            target="_blank"
-            rel="noopener"
-            className="oh-pill mt-2 w-full text-center"
-          >
+          <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
+          <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
+          <Link href="/add-ons" className="hover:text-[--oh-orange]">Add-Ons</Link>
+          <Link href="/industry" className="hover:text-[--oh-orange]">Industries</Link>
+          <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill mt-2 w-full text-center">
             Book a Call
           </a>
         </nav>
@@ -69,8 +56,6 @@ export default function HomePage() {
 
       {/* Hero */}
       <div className="relative flex-1 flex items-center justify-center text-center px-6 py-24 overflow-hidden">
-        <MatrixRain className="absolute inset-0 pointer-events-none" />
-
         <section className="relative z-10 max-w-5xl mx-auto">
           <p className="inline-block text-xs tracking-widest uppercase text-white/60 border border-white/15 rounded-full px-3 py-1 mb-5">
             Brand · Outreach · Automation
@@ -231,21 +216,11 @@ export default function HomePage() {
         <p className="mb-3 text-[--oh-orange] font-semibold">Brand · Outreach · Automation</p>
 
         <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <Link href="/solutions" className="hover:text-[--oh-orange]">
-            Solutions
-          </Link>
-          <Link href="/how-it-works" className="hover:text-[--oh-orange]">
-            How&nbsp;It&nbsp;Works
-          </Link>
-          <Link href="/add-ons" className="hover:text-[--oh-orange]">
-            Add-Ons
-          </Link>
-          <Link href="/industry" className="hover:text-[--oh-orange]">
-            Industries
-          </Link>
-          <Link href="/contact" className="hover:text-[--oh-orange]">
-            Contact
-          </Link>
+          <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
+          <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
+          <Link href="/add-ons" className="hover:text-[--oh-orange]">Add-Ons</Link>
+          <Link href="/industry" className="hover:text-[--oh-orange]">Industries</Link>
+          <Link href="/contact" className="hover:text-[--oh-orange]">Contact</Link>
         </nav>
 
         <p className="mt-4 text-white/50">© {year} Orange Hat Marketing. All rights reserved.</p>
