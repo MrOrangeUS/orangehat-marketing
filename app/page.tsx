@@ -12,7 +12,6 @@ export default function HomePage() {
 
   return (
     <main className="text-white bg-[#050505] min-h-screen flex flex-col">
-      {/* Matrix background (uses existing component signature) */}
       <MatrixRain
         color="#E05A1E"
         glyph="01ΩΞ₪⛁∴"
@@ -23,7 +22,6 @@ export default function HomePage() {
         background="rgb(0,0,0)"
       />
 
-      {/* Header */}
       <header className="sticky top-0 z-20 bg-[#050505]/80 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold tracking-wide">
@@ -31,18 +29,30 @@ export default function HomePage() {
           </Link>
 
           <nav className="hidden md:flex space-x-6 items-center text-sm">
-            <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
-            <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
-            <Link href="/add-ons" className="hover:text-[--oh-orange]">Add-Ons</Link>
-            <Link href="/industry" className="hover:text-[--oh-orange]">Industries</Link>
+            <Link href="/solutions" className="hover:text-[--oh-orange]">
+              Solutions
+            </Link>
+            <Link href="/how-it-works" className="hover:text-[--oh-orange]">
+              How&nbsp;It&nbsp;Works
+            </Link>
+            <Link href="/add-ons" className="hover:text-[--oh-orange]">
+              Add-Ons
+            </Link>
+            <Link href="/industry" className="hover:text-[--oh-orange]">
+              Industries
+            </Link>
           </nav>
 
-          <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill hidden md:inline-block">
+          <a
+            href={CTA_URL}
+            target="_blank"
+            rel="noopener"
+            className="oh-pill hidden md:inline-block"
+          >
             Book a Call
           </a>
         </div>
 
-        {/* Mobile nav */}
         <nav className="flex md:hidden flex-wrap gap-x-4 gap-y-2 px-6 pb-4 text-sm">
           <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
           <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
@@ -54,9 +64,8 @@ export default function HomePage() {
         </nav>
       </header>
 
-      {/* Hero */}
-      <div className="relative flex-1 flex items-center justify-center text-center px-6 py-24 overflow-hidden">
-        <section className="relative z-10 max-w-5xl mx-auto">
+      <section className="relative flex-1 flex items-center justify-center text-center px-6 py-24 overflow-hidden">
+        <div className="relative z-10 max-w-5xl mx-auto">
           <p className="inline-block text-xs tracking-widest uppercase text-white/60 border border-white/15 rounded-full px-3 py-1 mb-5">
             Brand · Outreach · Automation
           </p>
@@ -66,15 +75,14 @@ export default function HomePage() {
           </h1>
 
           <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-white/85">
-            OrangeHat installs growth infrastructure: brand positioning, outbound outreach, and AI-driven
-            automation that turns attention into booked appointments.
+            OrangeHat installs growth infrastructure: brand positioning, outbound outreach,
+            and AI-driven automation that turns attention into booked appointments.
           </p>
 
           <div className="flex flex-col sm:flex-row sm:justify-center gap-4">
             <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill">
               Build My Growth System
             </a>
-
             <Link
               href="/how-it-works"
               className="oh-pill bg-transparent border border-[--oh-orange] text-[--oh-orange] hover:bg-[--oh-orange] hover:text-black transition-colors"
@@ -82,10 +90,9 @@ export default function HomePage() {
               See How It Works
             </Link>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      {/* Problem */}
       <section className="py-24 px-6 bg-black border-t border-white/10">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -114,7 +121,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stack */}
       <section className="py-24 px-6 bg-[#0f0f0f] border-t border-white/10">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">The OrangeHat Growth Stack</h2>
@@ -155,7 +161,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Add-ons */}
       <section className="py-24 px-6 bg-black border-t border-white/10">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">Optional Revenue Accelerators</h2>
@@ -191,9 +196,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="py-24 px-6 bg-[#0f0f0f] text-center border-t border-white/10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Install a Growth System That Actually Converts</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Install a Growth System That Actually Converts
+        </h2>
         <p className="text-lg md:text-xl mb-10 text-white/85">
           Brand. Outreach. Automation. Everything else becomes optional.
         </p>
@@ -211,7 +217,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="py-10 px-6 bg-black text-center text-sm border-t border-white/10">
         <p className="mb-3 text-[--oh-orange] font-semibold">Brand · Outreach · Automation</p>
 
