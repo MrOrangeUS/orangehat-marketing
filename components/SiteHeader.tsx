@@ -13,7 +13,7 @@ const CTA_URL =
   "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
 export default function SiteHeader({
-  subtitle = "Lead Reactivation",
+  subtitle = "Brand · Outreach · Automation",
   ctaLabel = "Book a Call",
   showCTA = true,
 }: SiteHeaderProps) {
@@ -23,7 +23,7 @@ export default function SiteHeader({
         {/* Logo + Brand */}
         <Link href="/" className="flex items-center gap-3">
           <img
-            src="/orangehat-logo.png"
+            src="/orange-hat-poster.png"
             alt="OrangeHat Marketing"
             className="h-10 w-auto"
           />
