@@ -25,7 +25,7 @@ export default function SiteHeader({
           <img
             src="/orange-hat-poster.png"
             alt="OrangeHat Marketing"
-            className="h-10 w-auto"
+            className="h-8 w-auto"
           />
           <div className="leading-tight">
             <div className="text-xl font-bold">OrangeHat</div>
