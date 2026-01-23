@@ -20,7 +20,7 @@ export default function AddOnsPage() {
         background="rgb(0,0,0)"
       />
 
-  r>
+      {/* Header must come ONLY from app/layout.tsx via <SiteHeader /> */}
 
       <section className="relative z-10 max-w-5xl mx-auto text-center px-6 py-24">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Revenue Accelerators</h1>
