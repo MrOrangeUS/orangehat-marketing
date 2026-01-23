@@ -20,24 +20,7 @@ export default function PayPerLeadPage() {
         background="rgb(0,0,0)"
       />
 
-      <header className="sticky top-0 z-20 bg-[#050505]/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold tracking-wide">
-            Orange Hat
-          </Link>
-
-          <nav className="hidden md:flex space-x-6 items-center text-sm">
-            <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
-            <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
-            <Link href="/add-ons" className="hover:text-[--oh-orange]">Add-Ons</Link>
-            <Link href="/industry" className="hover:text-[--oh-orange]">Industries</Link>
-          </nav>
-
-          <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill hidden md:inline-block">
-            Request Qualification
-          </a>
-        </div>
-      </header>
+    
 
       <section className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Pay-Per-Lead</h1>
