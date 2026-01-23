@@ -22,47 +22,7 @@ export default function HomePage() {
         background="rgb(0,0,0)"
       />
 
-      <header className="sticky top-0 z-20 bg-[#050505]/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold tracking-wide">
-            Orange Hat
-          </Link>
-
-          <nav className="hidden md:flex space-x-6 items-center text-sm">
-            <Link href="/solutions" className="hover:text-[--oh-orange]">
-              Solutions
-            </Link>
-            <Link href="/how-it-works" className="hover:text-[--oh-orange]">
-              How&nbsp;It&nbsp;Works
-            </Link>
-            <Link href="/add-ons" className="hover:text-[--oh-orange]">
-              Add-Ons
-            </Link>
-            <Link href="/industry" className="hover:text-[--oh-orange]">
-              Industries
-            </Link>
-          </nav>
-
-          <a
-            href={CTA_URL}
-            target="_blank"
-            rel="noopener"
-            className="oh-pill hidden md:inline-block"
-          >
-            Book a Call
-          </a>
-        </div>
-
-        <nav className="flex md:hidden flex-wrap gap-x-4 gap-y-2 px-6 pb-4 text-sm">
-          <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
-          <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
-          <Link href="/add-ons" className="hover:text-[--oh-orange]">Add-Ons</Link>
-          <Link href="/industry" className="hover:text-[--oh-orange]">Industries</Link>
-          <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill mt-2 w-full text-center">
-            Book a Call
-          </a>
-        </nav>
-      </header>
+      {/* ✅ HEADER REMOVED — header must come ONLY from app/layout.tsx */}
 
       <section className="relative flex-1 flex items-center justify-center text-center px-6 py-24 overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto">
