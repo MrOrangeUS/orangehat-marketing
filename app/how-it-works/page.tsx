@@ -20,11 +20,10 @@ export default function HowItWorksPage() {
         background="rgb(0,0,0)"
       />
 
+      {/* Header must come ONLY from app/layout.tsx via <SiteHeader /> */}
 
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold tracking-wide">
-            Orange Hat
-     <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
+      <section className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">How It Works</h1>
         <p className="text-lg md:text-xl text-white/85 mb-14">
           A simple, repeatable process to install your growth infrastructure.
         </p>
@@ -33,25 +32,33 @@ export default function HowItWorksPage() {
           <div className="bg-[#151515] p-8 rounded-lg border border-white/10">
             <p className="text-xs uppercase tracking-widest text-white/60 mb-2">Step 1</p>
             <h2 className="text-2xl font-semibold mb-3 text-[--oh-orange]">Audit</h2>
-            <p className="text-white/85">We assess your brand, outreach, follow-up, and current systems.</p>
+            <p className="text-white/85">
+              We assess your brand, outreach, follow-up, and current systems.
+            </p>
           </div>
 
           <div className="bg-[#151515] p-8 rounded-lg border border-white/10">
             <p className="text-xs uppercase tracking-widest text-white/60 mb-2">Step 2</p>
             <h2 className="text-2xl font-semibold mb-3 text-[--oh-orange]">Build</h2>
-            <p className="text-white/85">We install your brand foundation, outreach engine, and automation backbone.</p>
+            <p className="text-white/85">
+              We install your brand foundation, outreach engine, and automation backbone.
+            </p>
           </div>
 
           <div className="bg-[#151515] p-8 rounded-lg border border-white/10">
             <p className="text-xs uppercase tracking-widest text-white/60 mb-2">Step 3</p>
             <h2 className="text-2xl font-semibold mb-3 text-[--oh-orange]">Deploy</h2>
-            <p className="text-white/85">Campaigns go live. Automation activates. Follow-up begins instantly.</p>
+            <p className="text-white/85">
+              Campaigns go live. Automation activates. Follow-up begins instantly.
+            </p>
           </div>
 
           <div className="bg-[#151515] p-8 rounded-lg border border-white/10">
             <p className="text-xs uppercase tracking-widest text-white/60 mb-2">Step 4</p>
             <h2 className="text-2xl font-semibold mb-3 text-[--oh-orange]">Optimize</h2>
-            <p className="text-white/85">We refine messaging, routing, and workflows based on real engagement.</p>
+            <p className="text-white/85">
+              We refine messaging, routing, and workflows based on real engagement.
+            </p>
           </div>
 
           <div className="bg-[#151515] p-8 rounded-lg border border-white/10 md:col-span-2">
