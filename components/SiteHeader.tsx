@@ -25,6 +25,7 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
 
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
@@ -33,6 +34,7 @@ export default function SiteHeader({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  // Lock scroll when mobile menu open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -44,15 +46,17 @@ export default function SiteHeader({
 
   return (
     <header className="sticky top-0 z-50 relative bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
-      {/* Top bar */}
       <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center gap-4">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-3 min-w-0 max-w-[300px]">
+        <Link
+          href="/"
+          className="flex items-center gap-3 min-w-0 max-w-[300px]"
+        >
           <img
             src="/orange-hat-header.png"
             alt="OrangeHat logo"
-            className="h-9 w-9 sm:h-11 sm:w-11 object-contain shrink-0 block"
-            style={{ maxWidth: 44, maxHeight: 44 }}
+            className="h-10 w-10 sm:h-12 sm:w-12 object-contain shrink-0 block"
+            style={{ maxWidth: 48, maxHeight: 48 }}
             loading="eager"
           />
           <div className="min-w-0 leading-tight">
@@ -65,8 +69,8 @@ export default function SiteHeader({
           </div>
         </Link>
 
-        {/* Desktop nav (FORCE spacing) */}
-        <nav className="hidden md:flex items-center gap-8 text-sm flex-1 pl-6 pr-48">
+        {/* Desktop nav — spaced and protected */}
+        <nav className="hidden md:flex flex-1 items-center gap-6 text-sm pl-6 pr-56">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -78,7 +82,7 @@ export default function SiteHeader({
           ))}
         </nav>
 
-        {/* Desktop CTA pinned to right edge + matches site buttons */}
+        {/* Desktop CTA pinned to viewport edge */}
         <a
           href={CTA_URL}
           target="_blank"
