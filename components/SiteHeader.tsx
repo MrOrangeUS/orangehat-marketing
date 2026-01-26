@@ -25,7 +25,6 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
 
-  // Close mobile menu on desktop resize
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
@@ -34,7 +33,6 @@ export default function SiteHeader({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -45,11 +43,9 @@ export default function SiteHeader({
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
-      {/* Top bar: logo + desktop nav + mobile toggle */}
-      <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0">
-          {/* Smaller logo keeps header compact */}
+    <header className="sticky top-0 z-50 relative bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
+      <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center gap-4">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0 max-w-[260px]">
           <img
             src="/orange-hat-header.png"
             alt="OrangeHat logo"
@@ -57,39 +53,38 @@ export default function SiteHeader({
             style={{ maxWidth: 36, maxHeight: 36 }}
             loading="eager"
           />
-
           <div className="min-w-0 leading-tight">
             <div className="text-base sm:text-lg font-bold tracking-tight text-white truncate">
               OrangeHat
             </div>
-            <div className="text-xs sm:text-sm text-white/70 truncate">
-              {subtitle}
-            </div>
+            <div className="text-xs sm:text-sm text-white/70 truncate">{subtitle}</div>
           </div>
         </Link>
 
-        {/* Desktop nav + CTA */}
-        <nav className="hidden md:flex items-center justify-end gap-8 text-sm whitespace-nowrap">
+        {/* Desktop nav (hidden on mobile) */}
+        <nav className="hidden md:flex items-center gap-6 text-sm ml-8 flex-1">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-white/85 hover:text-[--oh-orange] transition"
+              className="text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
             >
               {item.label}
             </Link>
           ))}
-          <a
-            href={CTA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-[--oh-orange] text-black font-semibold hover:opacity-90 transition"
-          >
-            {ctaLabel}
-          </a>
         </nav>
 
-        {/* Mobile hamburger */}
+        {/* CTA pinned to right edge on desktop */}
+        <a
+          href={CTA_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 items-center justify-center px-5 py-2 rounded-full bg-[--oh-orange] text-black font-semibold hover:opacity-90 transition whitespace-nowrap"
+        >
+          {ctaLabel}
+        </a>
+
+        {/* Mobile hamburger toggle */}
         <button
           type="button"
           className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border border-white/20 bg-white/5 text-white"
@@ -112,7 +107,6 @@ export default function SiteHeader({
         </button>
       </div>
 
-      {/* Mobile dropdown */}
       {open && (
         <div className="md:hidden border-t border-white/10 bg-[#050505]/95">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3 text-sm">
