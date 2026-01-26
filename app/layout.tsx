@@ -20,7 +20,7 @@ export default function RootLayout({
         <SiteHeader />
 
         {/* ✅ Push content below sticky header */}
-        <main className="pt-24">{children}</main>
+        <main className="pt-32">{children}</main>
 
         <Script
           id="highlevel-chat-widget"
