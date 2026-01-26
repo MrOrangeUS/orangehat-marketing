@@ -64,7 +64,7 @@ export default function SiteHeader({
         </Link>
 
         {/* Desktop nav with refined spacing and baseline alignment */}
-        <nav className="hidden md:flex flex-1 items-center gap-6 text-sm pl-6 pr-44 -mt-[1px]">
+        <nav className="hidden md:flex flex-1 justify-center items-center-center gap-6 text-sm pl-6 pr-44 -mt-[1px]">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -77,14 +77,14 @@ export default function SiteHeader({
         </nav>
 
         {/* Desktop CTA pinned right, using the smaller pill */}
-        <a
-          href={CTA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex oh-pill oh-pill--header absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 whitespace-nowrap"
-        >
-          {ctaLabel}
-        </a>
+    <a
+  href={CTA_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hidden md:inline-flex ml-auto oh-pill oh-pill--header whitespace-nowrap
+>
+  {ctaLabel}
+</a>
 
         {/* Mobile hamburger */}
         <button
