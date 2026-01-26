@@ -12,7 +12,6 @@ const CTA_URL =
   process.env.NEXT_PUBLIC_BOOK_URL ||
   "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
-// Define your primary navigation here once
 const NAV = [
   { href: "/solutions", label: "Solutions" },
   { href: "/how-it-works", label: "How It Works" },
@@ -26,7 +25,7 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
 
-  // Close the mobile menu on window resize to desktop widths
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
@@ -35,7 +34,7 @@ export default function SiteHeader({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Prevent page scroll when the mobile menu is open
+  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -48,7 +47,6 @@ export default function SiteHeader({
   return (
     <header className="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center justify-between gap-4">
-        {/* Logo + brand name */}
         <Link href="/" className="flex items-center gap-3 min-w-0">
           <img
             src="/orange-hat-header.png"
@@ -66,7 +64,7 @@ export default function SiteHeader({
           </div>
         </Link>
 
-        {/* Desktop navigation */}
+        {/* Desktop nav + CTA */}
         <nav className="hidden md:flex items-center justify-end gap-6 text-sm whitespace-nowrap">
           {NAV.map((item) => (
             <Link
@@ -96,7 +94,7 @@ export default function SiteHeader({
           onClick={() => setOpen((v) => !v)}
         >
           {open ? (
-            // X icon
+            // Close icon
             <svg
               className="h-5 w-5"
               viewBox="0 0 24 24"
