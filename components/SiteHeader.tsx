@@ -25,7 +25,6 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
 
-  // Collapse mobile menu on resize
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
@@ -34,7 +33,6 @@ export default function SiteHeader({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Lock scroll when mobile menu is open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -46,52 +44,49 @@ export default function SiteHeader({
 
   return (
     <header className="sticky top-0 z-50 relative bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
+      {/* Top bar */}
       <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center gap-4">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 min-w-0 max-w-[300px]">
           <img
             src="/orange-hat-header.png"
             alt="OrangeHat logo"
-            className="h-12 w-12 sm:h-14 sm:w-14 object-contain shrink-0 block"
-            style={{ maxWidth: 56, maxHeight: 56 }}
+            className="h-10 w-10 sm:h-12 sm:w-12 object-contain shrink-0 block"
+            style={{ maxWidth: 48, maxHeight: 48 }}
             loading="eager"
           />
           <div className="min-w-0 leading-tight">
             <div className="text-base sm:text-lg font-bold tracking-tight text-white truncate">
               OrangeHat
             </div>
-            <div className="text-xs sm:text-sm text-white/70 truncate">
-              {subtitle}
-            </div>
+            <div className="text-xs sm:text-sm text-white/70 truncate">{subtitle}</div>
           </div>
         </Link>
 
-        {/* Desktop nav with explicit spacing */}
-        <nav className="hidden md:flex flex-1 items-center pl-6 pr-72">
-          <div className="flex flex-wrap items-center gap-8 text-sm">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+        {/* Desktop nav with refined spacing and baseline alignment */}
+        <nav className="hidden md:flex flex-1 items-center gap-6 text-sm pl-6 pr-44 -mt-[1px]">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="inline-flex text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
-        {/* CTA button, styled like other site buttons, pinned right */}
+        {/* Desktop CTA pinned right, using the smaller pill */}
         <a
           href={CTA_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex oh-pill absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 whitespace-nowrap"
+          className="hidden md:inline-flex oh-pill oh-pill--header absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 whitespace-nowrap"
         >
           {ctaLabel}
         </a>
 
-        {/* Mobile hamburger toggle */}
+        {/* Mobile hamburger */}
         <button
           type="button"
           className="md:hidden ml-auto inline-flex items-center justify-center h-10 w-10 rounded-md border border-white/20 bg-white/5 text-white"
@@ -130,7 +125,7 @@ export default function SiteHeader({
         </button>
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile dropdown */}
       {open && (
         <div className="md:hidden border-t border-white/10 bg-[#050505]/95">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3 text-sm">
