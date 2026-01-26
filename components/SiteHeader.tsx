@@ -53,9 +53,11 @@ export default function SiteHeader({
           <img
             src="/orange-hat-header.png"
             alt="OrangeHat logo"
-            className="h-8 w-8 sm:h-10 sm:w-10 object-contain shrink-0"
+            className="h-7 w-7 sm:h-9 sm:w-9 object-contain shrink-0 block"
+            style={{ maxWidth: 36, maxHeight: 36 }}
             loading="eager"
           />
+
           <div className="min-w-0 leading-tight">
             <div className="text-base sm:text-lg font-bold tracking-tight text-white truncate">
               OrangeHat
