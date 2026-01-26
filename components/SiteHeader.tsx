@@ -12,10 +12,11 @@ const CTA_URL =
   process.env.NEXT_PUBLIC_BOOK_URL ||
   "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
+// Define your primary navigation here once
 const NAV = [
   { href: "/solutions", label: "Solutions" },
   { href: "/how-it-works", label: "How It Works" },
-  { href: "/add-ons", label: "Add-Ons" },
+  { href: "/add-ons", label: "Add‑Ons" },
   { href: "/industry", label: "Industries" },
 ];
 
@@ -25,7 +26,7 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
 
-  // Close menu on resize to desktop
+  // Close the mobile menu on window resize to desktop widths
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
@@ -34,7 +35,7 @@ export default function SiteHeader({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Prevent body scroll when menu open (mobile)
+  // Prevent page scroll when the mobile menu is open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -47,7 +48,7 @@ export default function SiteHeader({
   return (
     <header className="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center justify-between gap-4">
-        {/* Brand */}
+        {/* Logo + brand name */}
         <Link href="/" className="flex items-center gap-3 min-w-0">
           <img
             src="/orange-hat-header.png"
@@ -65,7 +66,7 @@ export default function SiteHeader({
           </div>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop navigation */}
         <nav className="hidden md:flex items-center justify-end gap-6 text-sm whitespace-nowrap">
           {NAV.map((item) => (
             <Link
@@ -76,7 +77,6 @@ export default function SiteHeader({
               {item.label}
             </Link>
           ))}
-
           <a
             href={CTA_URL}
             target="_blank"
@@ -128,7 +128,7 @@ export default function SiteHeader({
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile dropdown menu */}
       {open && (
         <div className="md:hidden border-t border-white/10 bg-[#050505]/95">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3 text-sm">
@@ -142,7 +142,6 @@ export default function SiteHeader({
                 {item.label}
               </Link>
             ))}
-
             <a
               href={CTA_URL}
               target="_blank"
