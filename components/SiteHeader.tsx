@@ -67,20 +67,13 @@ export default function SiteHeader({
         </Link>
 
         {/* Desktop nav (center) */}
-        {/*
-         * Evenly distribute navigation links across the available space on desktop.
-         * Applying `flex-1` to the nav container lets it occupy the space between
-         * the brand and CTA. Each link is also given `flex-1` along with
-         * `justify-center` so that all links take up equal width and center their
-         * labels. This creates uniform spacing without relying on gap or space
-         * utilities and responds gracefully to different viewport widths.
-         */}
-        <nav className="hidden md:flex flex-1 items-center text-sm">
+        {/* Distribute nav links evenly across the available space by giving the nav container flex-1 and using justify-evenly. Each link is an inline-flex element without extra padding to let the container control spacing. */}
+        <nav className="hidden md:flex flex-1 justify-evenly items-center text-sm">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="flex-1 flex items-center justify-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+              className="inline-flex items-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
             >
               {item.label}
             </Link>
