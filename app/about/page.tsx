@@ -5,11 +5,11 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  const BOOK_URL =
-    process.env.NEXT_PUBLIC_BOOK_URL ||
-    "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
+  copnst BOOK_URL =
+   
+       "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
-  return (
+  return 
     <div className="min-h-screen py-24 px-6 md:px-12 text-white bg-black">
       <h1 className="text-4xl md:text-5xl font-bold mb-8">About OrangeHat</h1>
 
