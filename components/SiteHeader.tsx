@@ -66,19 +66,17 @@ export default function SiteHeader({
           </div>
         </Link>
 
-            {/* Desktop nav (center) */}
-          
-  <nav className="hidden md:flex items-center gap-8 text-sm mx-auto">
-  {NAV.map((item) => (
-    <Link
-      key={item.href}
-      href={item.href}
-      className="inline-flex text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
-    >
-      {item.label}
-    </Link>
-  ))}
-</nav>         </Link>
+        {/* Desktop nav (center) */}
+        {/* Use mx-auto to center the nav between the brand and CTA without relying on flex grow. */}
+        <nav className="hidden md:flex items-center gap-8 text-sm mx-auto">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="inline-flex text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+            >
+              {item.label}
+            </Link>
           ))}
         </nav>
 
@@ -161,4 +159,3 @@ export default function SiteHeader({
     </header>
   );
 }
-</Link>
