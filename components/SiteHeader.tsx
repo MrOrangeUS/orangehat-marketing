@@ -67,13 +67,13 @@ export default function SiteHeader({
         </Link>
 
         {/* Desktop nav (center) */}
-        {/* Distribute nav links evenly across the available space by giving the nav container flex-1 and using justify-evenly. Each link is an inline-flex element without extra padding to let the container control spacing. */}
-        <nav className="hidden md:flex flex-1 justify-evenly items-center text-sm">
+        {/* Center the navigation horizontally and apply fixed margins to each link for consistent spacing. Each link has a right margin except the last child. */}
+        <nav className="hidden md:flex flex-1 justify-center items-center text-sm">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="inline-flex items-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+              className="inline-flex items-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap mr-8 last:mr-0"
             >
               {item.label}
             </Link>
