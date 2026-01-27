@@ -68,18 +68,19 @@ export default function SiteHeader({
 
         {/* Desktop nav (center) */}
         {/*
-         * Center the navigation horizontally within the header. The `flex-1` utility
-         * allows the nav to occupy the space between the brand and CTA, while
-         * `justify-center` keeps the group centered. A Tailwind `space-x-*` class
-         * inserts consistent horizontal spacing between each link, so they aren't
-         * jammed together and remain responsive across different screen sizes.
+         * Evenly distribute navigation links across the available space on desktop.
+         * Applying `flex-1` to the nav container lets it occupy the space between
+         * the brand and CTA. Each link is also given `flex-1` along with
+         * `justify-center` so that all links take up equal width and center their
+         * labels. This creates uniform spacing without relying on gap or space
+         * utilities and responds gracefully to different viewport widths.
          */}
-        <nav className="hidden md:flex flex-1 justify-center items-center space-x-12 text-sm">
+        <nav className="hidden md:flex flex-1 items-center text-sm">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="inline-flex items-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+              className="flex-1 flex items-center justify-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
             >
               {item.label}
             </Link>
