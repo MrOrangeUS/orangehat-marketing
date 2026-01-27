@@ -56,8 +56,8 @@ export default function SiteHeader({
             /* Increase the size of the logo so it fills the available space in the header.
                Using larger height/width values on both mobile and desktop ensures the logo
                fits nicely within the designated area without leaving excess margin. */
-            className="h-12 w-12 sm:h-14 sm:w-14 object-contain shrink-0 block"
-            style={{ maxWidth: 56, maxHeight: 56 }}
+            className="h-14 w-14 sm:h-16 sm:w-16 object-contain shrink-0 block"
+            style={{ maxWidth: 64, maxHeight: 64 }}
             loading="eager"
           />
           <div className="min-w-0 leading-tight">
