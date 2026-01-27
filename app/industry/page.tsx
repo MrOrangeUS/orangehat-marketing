@@ -4,8 +4,8 @@ import Link from "next/link";
 import MatrixRain from "../../components/MatrixRain";
 
 const CTA_URL =
-  process.env.NEXT_PUBLIC_BOOK_URL ||
-  "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
+  
+   "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
 const industries = [
   { name: "Construction & Trades", desc: "General contractors, remodels, concrete, field crews." },
@@ -13,6 +13,8 @@ const industries = [
   { name: "Roofing", desc: "Storm work, residential/commercial roofing, inspection-first sales." },
   { name: "HVAC", desc: "Service calls, installs, maintenance plans, high-volume inbound." },
   { name: "Professional Services", desc: "Appointments, consultations, high-intent follow-up." },
+    { name: "Hospitality", desc: "Hotels, resorts, travel and tourism businesses." },
+
 ];
 
 export default function IndustriesPage() {
