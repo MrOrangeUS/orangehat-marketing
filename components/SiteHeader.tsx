@@ -68,12 +68,12 @@ export default function SiteHeader({
 
         {/* Desktop nav (center) */}
         {/*
-         * Center the navigation horizontally and provide generous spacing between menu items.
-         * Use flex-1 on the container so it consumes available space, and justify-center to
-         * center the nav items. A large gap between children keeps them separated without
-         * adding internal padding to each link.
+         * Center the navigation horizontally within the header using mx-auto. The nav
+         * container will shrink-wrap its children and sit in the middle of the header.
+         * A generous gap between children provides consistent spacing without adding
+         * internal padding to each link.
          */}
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-12 text-sm">
+        <nav className="hidden md:flex items-center gap-12 text-sm mx-auto">
           {NAV.map((item) => (
             <Link
               key={item.href}
