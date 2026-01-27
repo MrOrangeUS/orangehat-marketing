@@ -67,13 +67,18 @@ export default function SiteHeader({
         </Link>
 
         {/* Desktop nav (center) */}
-        {/* Use space-x-8 to provide consistent horizontal spacing between nav links while centering with mx-auto. */}
-        <nav className="hidden md:flex items-center text-sm mx-auto space-x-8">
+        {/*
+         * Center the navigation horizontally and provide generous spacing between menu items.
+         * Use flex-1 on the container so it consumes available space, and justify-center to
+         * center the nav items. A large gap between children keeps them separated without
+         * adding internal padding to each link.
+         */}
+        <nav className="hidden md:flex flex-1 justify-center items-center gap-12 text-sm">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="inline-flex items-center px-5 text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+              className="inline-flex items-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
             >
               {item.label}
             </Link>
