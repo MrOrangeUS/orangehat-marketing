@@ -5,7 +5,7 @@ import MatrixRain from "../../components/MatrixRain";
 
 const CTA_URL =
   
-  "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
+  "https://api.leadconnectorhq.com/widget/CPADDn4nnIu2we1sni9z";
 
 export default function HowItWorksPage() {
   return (
