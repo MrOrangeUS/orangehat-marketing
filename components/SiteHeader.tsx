@@ -73,7 +73,7 @@ export default function SiteHeader({
             <Link
               key={item.href}
               href={item.href}
-              className="inline-flex text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+              className="inline-flex items-center px-5 text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
             >
               {item.label}
             </Link>
