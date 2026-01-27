@@ -67,17 +67,21 @@ export default function SiteHeader({
         </Link>
 
         {/* Desktop nav (center) */}
-        {/* Center the navigation horizontally and apply fixed margins to each link for consistent spacing. Each link has a right margin except the last child. */}
-        <nav className="hidden md:flex flex-1 justify-center items-center text-sm">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="inline-flex items-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap mr-8 last:mr-0"
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Render navigation as an unordered list to ensure predictable spacing. The <ul> is a flex container
+            with justify-center to center the links horizontally and space-x-* to add equal space between items. */}
+        <nav className="hidden md:block mx-auto">
+          <ul className="flex justify-center items-center text-sm space-x-12">
+            {NAV.map((item) => (
+              <li key={item.href} className="list-none">
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
 
         {/* Desktop CTA (right) */}
