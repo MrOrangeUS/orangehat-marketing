@@ -66,16 +66,19 @@ export default function SiteHeader({
           </div>
         </Link>
 
-        {/* Desktop nav (center) */}
-        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="inline-flex text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
-            >
-              {item.label}
-            </Link>
+            {/* Desktop nav (center) */}
+          
+  <nav className="hidden md:flex items-center gap-8 text-sm mx-auto">
+  {NAV.map((item) => (
+    <Link
+      key={item.href}
+      href={item.href}
+      className="inline-flex text-white/85 hover:text-[--oh-orange] transition whitespace-nowrap"
+    >
+      {item.label}
+    </Link>
+  ))}
+</nav>         </Link>
           ))}
         </nav>
 
@@ -158,3 +161,4 @@ export default function SiteHeader({
     </header>
   );
 }
+</Link>
