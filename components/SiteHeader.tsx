@@ -68,12 +68,12 @@ export default function SiteHeader({
 
         {/* Desktop nav (center) */}
         {/*
-         * Center the navigation horizontally within the header using mx-auto. The nav
-         * container will shrink-wrap its children and sit in the middle of the header.
-         * A generous gap between children provides consistent spacing without adding
-         * internal padding to each link.
+         * Spread the navigation links evenly across the available space on desktop.
+         * Using `flex-1` on the container lets it fill the space between the brand and
+         * CTA, and `justify-around` distributes equal spacing around each link. This
+         * creates responsive, even spacing without relying on gap utilities.
          */}
-        <nav className="hidden md:flex items-center gap-12 text-sm mx-auto">
+        <nav className="hidden md:flex flex-1 justify-around items-center text-sm">
           {NAV.map((item) => (
             <Link
               key={item.href}
