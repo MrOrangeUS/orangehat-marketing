@@ -8,8 +8,9 @@ export type SiteHeaderProps = {
   ctaLabel?: string;
 };
 
+// Use a fixed booking URL for all CTA buttons, ignoring environment variables
+// to ensure consistency across deployments.
 const CTA_URL =
-  process.env.NEXT_PUBLIC_BOOK_URL ||
   "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
 const NAV = [
@@ -52,8 +53,11 @@ export default function SiteHeader({
           <img
             src="/orange-hat-header.png"
             alt="OrangeHat logo"
-            className="h-10 w-10 sm:h-12 sm:w-12 object-contain shrink-0 block"
-            style={{ maxWidth: 48, maxHeight: 48 }}
+            /* Increase the size of the logo so it fills the available space in the header.
+               Using larger height/width values on both mobile and desktop ensures the logo
+               fits nicely within the designated area without leaving excess margin. */
+            className="h-12 w-12 sm:h-14 sm:w-14 object-contain shrink-0 block"
+            style={{ maxWidth: 56, maxHeight: 56 }}
             loading="eager"
           />
           <div className="min-w-0 leading-tight">
