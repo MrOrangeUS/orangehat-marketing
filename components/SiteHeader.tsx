@@ -18,6 +18,7 @@ const NAV = [
   { href: "/add-ons", label: "Add-Ons" },
   { href: "/industry", label: "Industries" },
 ];
+
 export default function SiteHeader({
   subtitle = "Brand · Outreach · Automation",
   ctaLabel = "Book a Call",
@@ -31,7 +32,6 @@ export default function SiteHeader({
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, []);
   }, []);
 
   // Prevent background scroll when mobile menu open
@@ -158,4 +158,3 @@ export default function SiteHeader({
     </header>
   );
 }
-
