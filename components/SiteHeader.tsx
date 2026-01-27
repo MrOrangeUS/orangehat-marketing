@@ -67,10 +67,12 @@ export default function SiteHeader({
         </Link>
 
         {/* Desktop nav (center) */}
-        {/* Render navigation as an unordered list to ensure predictable spacing. The <ul> is a flex container
-            with justify-center to center the links horizontally and space-x-* to add equal space between items. */}
+        {/* Render navigation as an unordered list to ensure predictable spacing. The <ul> is a flex
+            container with justify-center to center the links horizontally and space-x-8 to add equal
+            space between items. Using space-x classes requires updating tailwind.config.js to include
+            the components directory so these classes are not purged. */}
         <nav className="hidden md:block mx-auto">
-          <ul className="flex justify-center items-center text-sm space-x-12">
+          <ul className="flex justify-center items-center text-sm space-x-8">
             {NAV.map((item) => (
               <li key={item.href} className="list-none">
                 <Link
