@@ -4,7 +4,7 @@ import Link from "next/link";
 import MatrixRain from "../../components/MatrixRain";
 
 const CTA_URL =
-  process.env.NEXT_PUBLIC_BOOK_URL ||
+  
   "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
 export default function HowItWorksPage() {
