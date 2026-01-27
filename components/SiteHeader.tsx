@@ -15,16 +15,16 @@ const CTA_URL =
 const NAV = [
   { href: "/solutions", label: "Solutions" },
   { href: "/how-it-works", label: "How It Works" },
-  { href: "/add-ons", label: "Add‑Ons" },
+  { href: "/add-ons", label: "Add-Ons" },
   { href: "/industry", label: "Industries" },
 ];
-
 export default function SiteHeader({
   subtitle = "Brand · Outreach · Automation",
   ctaLabel = "Book a Call",
 }: SiteHeaderProps) {
   const [open, setOpen] = useState(false);
 
+  // Close mobile menu when resizing to desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
@@ -32,7 +32,9 @@ export default function SiteHeader({
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
+  }, []);
 
+  // Prevent background scroll when mobile menu open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -43,11 +45,10 @@ export default function SiteHeader({
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 relative bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
-      {/* Top bar */}
+    <header className="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto h-20 px-4 sm:px-6 flex items-center gap-4">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-3 min-w-0 max-w-[300px]">
+        {/* Brand (left) */}
+        <Link href="/" className="flex items-center gap-3 min-w-0 max-w-[320px]">
           <img
             src="/orange-hat-header.png"
             alt="OrangeHat logo"
@@ -59,12 +60,14 @@ export default function SiteHeader({
             <div className="text-base sm:text-lg font-bold tracking-tight text-white truncate">
               OrangeHat
             </div>
-            <div className="text-xs sm:text-sm text-white/70 truncate">{subtitle}</div>
+            <div className="text-xs sm:text-sm text-white/70 truncate">
+              {subtitle}
+            </div>
           </div>
         </Link>
 
-        {/* Desktop nav with refined spacing and baseline alignment */}
-        <nav className="hidden md:flex flex-1 justify-center items-center-center gap-6 text-sm pl-6 pr-44 -mt-[1px]">
+        {/* Desktop nav (center) */}
+        <nav className="hidden md:flex flex-1 justify-center items-center gap-8 text-sm">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -76,15 +79,15 @@ export default function SiteHeader({
           ))}
         </nav>
 
-        {/* Desktop CTA pinned right, using the smaller pill */}
-    <a
-  href={CTA_URL}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hidden md:inline-flex ml-auto oh-pill oh-pill--header whitespace-nowrap
->
-  {ctaLabel}
-</a>
+        {/* Desktop CTA (right) */}
+        <a
+          href={CTA_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex ml-auto oh-pill oh-pill--header whitespace-nowrap"
+        >
+          {ctaLabel}
+        </a>
 
         {/* Mobile hamburger */}
         <button
@@ -139,6 +142,7 @@ export default function SiteHeader({
                 {item.label}
               </Link>
             ))}
+
             <a
               href={CTA_URL}
               target="_blank"
@@ -154,3 +158,4 @@ export default function SiteHeader({
     </header>
   );
 }
+
