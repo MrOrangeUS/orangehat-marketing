@@ -67,8 +67,8 @@ export default function SiteHeader({
         </Link>
 
         {/* Desktop nav (center) */}
-        {/* Use mx-auto to center the nav between the brand and CTA without relying on flex grow. */}
-        <nav className="hidden md:flex items-center gap-8 text-sm mx-auto">
+        {/* Use space-x-8 to provide consistent horizontal spacing between nav links while centering with mx-auto. */}
+        <nav className="hidden md:flex items-center text-sm mx-auto space-x-8">
           {NAV.map((item) => (
             <Link
               key={item.href}
