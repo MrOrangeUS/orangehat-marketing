@@ -1,200 +1,194 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import MatrixRain from '../components/MatrixRain';
+import Link from "next/link";
+import MatrixRain from "../components/MatrixRain";
 
-export default function Home() {
-  useEffect(() => {
-    // Intersection observer for animations
-    const elements = document.querySelectorAll('.animate');
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+const CTA_URL =
+  process.env.NEXT_PUBLIC_BOOK_URL ||
+  "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
-    elements.forEach(el => observer.observe(el));
-
-    // trigger hero animations after slight delay
-    const heroElements = document.querySelectorAll('#hero .animate');
-    const timer = setTimeout(() => {
-      heroElements.forEach(el => el.classList.add('in-view'));
-    }, 100);
-
-    return () => {
-      elements.forEach(el => observer.unobserve(el));
-      clearTimeout(timer);
-    };
-  }, []);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const formEndpoint = 'https://formspree.io/f/your_form_id';
-    try {
-      const response = await fetch(formEndpoint, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
-      });
-      if (response.ok) {
-        alert('Thank you for contacting Orangehat Marketing! We will get back to you soon.');
-        form.reset();
-      } else {
-        alert('There was a problem submitting the form. Please try again later.');
-      }
-    } catch (error) {
-      alert('There was a problem submitting the form. Please check your connection and try again.');
-    }
-  };
-
-  const handleBookDemo = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-  const calendlyUrl = 'https://getorangehat.ai';
-    window.open(calendlyUrl, '_blank');
-  };
+export default function HomePage() {
+  const year = new Date().getFullYear();
 
   return (
-    <main className="text-white bg-[#050505]">
-      <MatrixRain color="#E05A1E" density={20} />      {/* Header */}
-      <header className="fixed w-full top-0 z-50 border-b border-[#1a1a1a] bg-[#050505]">
-        <nav className="max-w-6xl mx-auto flex items-center justify-between p-4">
-          <a href="#hero" className="flex items-center">
-            <img src="/logo.svg" alt="Orangehat Marketing logo" className="h-10" />
+    <main className="text-white bg-[#050505] min-h-screen flex flex-col">
+      <MatrixRain
+        color="#E05A1E"
+        glyph="01ΩΞ₪⛁∴"
+        fontSize={12}
+        speed={0.1}
+        tailLength={16}
+        injectChance={0.008}
+        background="rgb(0,0,0)"
+      />
+
+      {/* ✅ HEADER REMOVED — header must come ONLY from app/layout.tsx */}
+
+      <section className="relative flex-1 flex items-center justify-center text-center px-6 py-24 overflow-hidden">
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <p className="inline-block text-xs tracking-widest uppercase text-white/60 border border-white/15 rounded-full px-3 py-1 mb-5">
+            Brand · Outreach · Automation
+          </p>
+
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+            We Build Brands That Create Demand — Then Automate the Follow-Up
+          </h1>
+
+          <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-white/85">
+            OrangeHat installs growth infrastructure: brand positioning, outbound outreach,
+            and AI-driven automation that turns attention into booked appointments.
+          </p>
+
+          <div className="flex flex-col sm:flex-row sm:justify-center gap-4">
+            <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill">
+              Build My Growth System
+            </a>
+            <Link
+              href="/how-it-works"
+              className="oh-pill bg-transparent border border-[--oh-orange] text-[--oh-orange] hover:bg-[--oh-orange] hover:text-black transition-colors"
+            >
+              See How It Works
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-black border-t border-white/10">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Not a Traffic Problem. Not a Lead Problem. It’s a{" "}
+            <span className="text-[--oh-orange]">System</span> Problem.
+          </h2>
+
+          <p className="text-lg md:text-xl mb-10 text-white/85">
+            Most businesses don’t lose money because they lack leads. They lose money because they lack systems.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-3xl mx-auto text-white/85">
+            <div className="space-y-3">
+              <p>• Missed calls go unanswered</p>
+              <p>• Follow-up breaks after day one</p>
+              <p>• Outreach is inconsistent or manual</p>
+            </div>
+            <div className="space-y-3">
+              <p>• Branding doesn’t convert attention into action</p>
+              <p>• Old leads die quietly inside CRMs</p>
+              <p>• No automation or routing</p>
+            </div>
+          </div>
+
+          <p className="mt-10 text-white/60">Without infrastructure, growth leaks everywhere.</p>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-[#0f0f0f] border-t border-white/10">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">The OrangeHat Growth Stack</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="bg-[#151515] p-8 rounded-lg border border-white/10">
+              <h3 className="text-2xl font-semibold mb-4 text-[--oh-orange]">Brand Builder</h3>
+              <ul className="space-y-2 text-left text-white/85">
+                <li>• Brand messaging & positioning</li>
+                <li>• Conversion-focused websites</li>
+                <li>• Authority signals that increase response rates</li>
+                <li>• Clear value propositions that sell</li>
+              </ul>
+            </div>
+
+            <div className="bg-[#151515] p-8 rounded-lg border border-white/10">
+              <h3 className="text-2xl font-semibold mb-4 text-[--oh-orange]">Outreach Engine</h3>
+              <ul className="space-y-2 text-left text-white/85">
+                <li>• Multi-channel outbound (email, SMS, chat, social)</li>
+                <li>• AI-assisted personalization at scale</li>
+                <li>• Smart sequencing and targeting</li>
+                <li>• Human + AI hybrid workflows</li>
+              </ul>
+            </div>
+
+            <div className="bg-[#151515] p-8 rounded-lg border border-white/10">
+              <h3 className="text-2xl font-semibold mb-4 text-[--oh-orange]">Automation Backbone</h3>
+              <ul className="space-y-2 text-left text-white/85">
+                <li>• CRM & pipeline automation</li>
+                <li>• AI lead qualification</li>
+                <li>• Routing & booking logic</li>
+                <li>• Instant follow-up & reminders</li>
+              </ul>
+            </div>
+          </div>
+
+          <p className="mt-10 text-white/60">Everything works together. Nothing runs in isolation.</p>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-black border-t border-white/10">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Optional Revenue Accelerators</h2>
+
+          <p className="mb-12 text-lg md:text-xl text-white/85">
+            Once your growth system is installed, plug in these add-ons to accelerate revenue.
+            These are optional multipliers, not the core offer.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div className="bg-[#151515] p-6 rounded-lg border border-white/10">
+              <h3 className="text-xl font-semibold mb-3 text-[--oh-orange]">AI Lead Recovery</h3>
+              <p className="mb-4 text-white/85">
+                Reactivate old leads, missed calls, and dormant contacts automatically. No ad spend required.
+              </p>
+              <Link href="/ai-lead-recovery" className="underline hover:text-[--oh-orange]">
+                Learn more →
+              </Link>
+            </div>
+
+            <div className="bg-[#151515] p-6 rounded-lg border border-white/10">
+              <h3 className="text-xl font-semibold mb-3 text-[--oh-orange]">Pay-Per-Lead</h3>
+              <p className="mb-4 text-white/85">
+                Done-for-you lead delivery — only after your system is built. Limited availability and territory based.
+              </p>
+              <Link href="/pay-per-lead" className="underline hover:text-[--oh-orange]">
+                Learn more →
+              </Link>
+            </div>
+          </div>
+
+          <p className="mt-10 text-white/60">These are add-ons. The system comes first.</p>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 bg-[#0f0f0f] text-center border-t border-white/10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Install a Growth System That Actually Converts
+        </h2>
+        <p className="text-lg md:text-xl mb-10 text-white/85">
+          Brand. Outreach. Automation. Everything else becomes optional.
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <a href={CTA_URL} target="_blank" rel="noopener" className="oh-pill">
+            Book a Strategy Call
           </a>
-          <ul className="hidden md:flex gap-8">
-            <li><a href="#services" className="hover:text-[#E05A1E]">Services</a></li>
-            <li><a href="#pricing" className="hover:text-[#E05A1E]">Pricing</a></li>
-            <li><a href="#testimonials" className="hover:text-[#E05A1E]">Testimonials</a></li>
-            <li><a href="#contact" className="hover:text-[#E05A1E]">Contact</a></li>
-          </ul>
-          <a href="#contact" className="hidden md:inline-block bg-[#E05A1E] text-white px-4 py-2 rounded-full hover:bg-[#b9450e]">Book a Demo</a>
+          <Link
+            href="/how-it-works"
+            className="oh-pill bg-transparent border border-[--oh-orange] text-[--oh-orange] hover:bg-[--oh-orange] hover:text-black transition-colors"
+          >
+            See How It Works
+          </Link>
+        </div>
+      </section>
+
+      <footer className="py-10 px-6 bg-black text-center text-sm border-t border-white/10">
+        <p className="mb-3 text-[--oh-orange] font-semibold">Brand · Outreach · Automation</p>
+
+        <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <Link href="/solutions" className="hover:text-[--oh-orange]">Solutions</Link>
+          <Link href="/how-it-works" className="hover:text-[--oh-orange]">How&nbsp;It&nbsp;Works</Link>
+          <Link href="/add-ons" className="hover:text-[--oh-orange]">Add-Ons</Link>
+          <Link href="/industry" className="hover:text-[--oh-orange]">Industries</Link>
+          <Link href="/contact" className="hover:text-[--oh-orange]">Contact</Link>
         </nav>
-      </header>
 
-      {/* Hero */}
-      <section id="hero" className="relative z-10 hero-section pt-32 pb-32 flex items-center justify-center text-center">
-        <div className="hero-content space-y-6 animate">
-          <h1 className="text-5xl font-bold animate">Orangehat Marketing</h1>
-          <p className="text-xl max-w-xl mx-auto animate">Grow your business with AI‑driven lead management, creative services, and social media that converts.</p>
-          <a href="#contact" className="bg-[#E05A1E] text-white px-6 py-3 rounded-full font-semibold inline-block animate hover:bg-[#b9450e]">Book a Demo</a>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section id="services" className="services-section py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8 animate">Our Services</h2>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
-          <div className="service-card bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform">
-            <h3 className="text-xl font-semibold mb-2">AI‑Driven Lead Management</h3>
-            <p>Automate lead capture, qualify with AI, route instantly, and nurture with smart sequences. Dashboards show funnel health, SLAs, and conversions in real time.</p>
-          </div>
-          <div className="service-card bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform">
-            <h3 className="text-xl font-semibold mb-2">Creative Services</h3>
-            <p>Brand systems, identity refresh, ad creative, landing pages, and content that actually sells. Strategy → design → ship, with fast iteration loops.</p>
-          </div>
-          <div className="service-card bg-[#1a1a1a] p-8 rounded-xl animate hover:-translate-y-1 transition-transform">
-            <h3 className="text-xl font-semibold mb-2">Social Media Management &amp; Engagement</h3>
-            <p>Daily posting cadence, UGC frameworks, comment engagement, DM flows, and paid social that compounds organic reach.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section id="pricing" className="pricing-section py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8 animate">Pricing</h2>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
-          <div className="pricing-card bg-[#1a1a1a] p-8 rounded-xl text-center animate">
-            <h3 className="text-xl font-semibold mb-2">Starter</h3>
-            <p className="price text-3xl text-[#E05A1E] my-2">$299</p>
-            <ul className="space-y-1 mb-4">
-              <li>Lead management automation</li>
-              <li>Standard reporting</li>
-              <li>Email support</li>
-            </ul>
-            <a href="#contact" className="border-2 border-[#E05A1E] text-[#E05A1E] px-4 py-2 rounded-full inline-block hover:bg-[#E05A1E] hover:text-white">Choose Starter</a>
-          </div>
-          <div className="pricing-card recommended bg-[#1a1a1a] p-8 rounded-xl text-center border-2 border-[#E05A1E] animate">
-            <h3 className="text-xl font-semibold mb-2">Growth</h3>
-            <p className="price text-3xl text-[#E05A1E] my-2">$499</p>
-            <ul className="space-y-1 mb-4">
-              <li>All Starter features</li>
-              <li>Creative services</li>
-              <li>Priority support</li>
-            </ul>
-            <a href="#contact" className="border-2 border-[#E05A1E] text-[#E05A1E] px-4 py-2 rounded-full inline-block hover:bg-[#E05A1E] hover:text-white">Choose Growth</a>
-          </div>
-          <div className="pricing-card bg-[#1a1a1a] p-8 rounded-xl text-center animate">
-            <h3 className="text-xl font-semibold mb-2">Scale</h3>
-            <p className="price text-3xl text-[#E05A1E] my-2">$799</p>
-            <ul className="space-y-1 mb-4">
-              <li>All Growth features</li>
-              <li>Social media management</li>
-              <li>Dedicated success manager</li>
-            </ul>
-            <a href="#contact" className="border-2 border-[#E05A1E] text-[#E05A1E] px-4 py-2 rounded-full inline-block hover:bg-[#E05A1E] hover:text-white">Choose Scale</a>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section id="testimonials" className="testimonials-section py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8 animate">What Our Clients Say</h2>
-        <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
-          <blockquote className="bg-[#1a1a1a] p-6 border-l-4 border-[#E05A1E] rounded-md italic animate">
-            <p>Since partnering with Orangehat, our entire operation has transformed. We're scaling without the chaos.</p>
-            <footer className="mt-4 not-italic text-[#E05A1E]">&mdash; Jordan M., Clearplex</footer>
-          </blockquote>
-          <blockquote className="bg-[#1a1a1a] p-6 border-l-4 border-[#E05A1E] rounded-md italic animate">
-            <p>The creative assets from Orangehat delivered conversions we thought were impossible.</p>
-            <footer className="mt-4 not-italic text-[#E05A1E]">&mdash; Sam R., Growthify</footer>
-          </blockquote>
-          <blockquote className="bg-[#1a1a1a] p-6 border-l-4 border-[#E05A1E] rounded-md italic animate">
-            <p>Our leads have never been more qualified. It's like having a superpower.</p>
-            <footer className="mt-4 not-italic text-[#E05A1E]">&mdash; Alex B., ByteLabs</footer>
-          </blockquote>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="contact-section py-16 px-4 max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-4 animate">Contact Us</h2>
-        <p className="mb-8 animate">Have questions? Ready to get started? Reach out and we'll get back to you within 24 hours.</p>
-        <form onSubmit={handleSubmit} className="space-y-4 animate">
-          <div className="flex flex-col text-left">
-            <label htmlFor="name" className="mb-1">Name</label>
-            <input id="name" name="name" type="text" required className="p-3 rounded-md bg-[#121212] border border-[#444] focus:outline-none focus:border-[#E05A1E]" />
-          </div>
-          <div className="flex flex-col text-left">
-            <label htmlFor="email" className="mb-1">Email</label>
-            <input id="email" name="email" type="email" required className="p-3 rounded-md bg-[#121212] border border-[#444] focus:outline-none focus:border-[#E05A1E]" />
-          </div>
-          <div className="flex flex-col text-left">
-            <label htmlFor="message" className="mb-1">Message</label>
-            <textarea id="message" name="message" rows={4} required className="p-3 rounded-md bg-[#121212] border border-[#444] focus:outline-none focus:border-[#E05A1E]"></textarea>
-          </div>
-          <button type="submit" className="bg-[#E05A1E] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#b9450e]">Send Message</button>
-        </form>
-        <p className="mt-4 animate">Prefer to chat? <a href="#" onClick={handleBookDemo} className="underline text-[#E05A1E]">Book a demo call</a>.</p>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#1a1a1a] py-8">
-        <div className="max-w-6xl mx-auto text-center space-y-4">
-          <p>&copy; 2025 Orangehat Marketing LLC. All rights reserved.</p>
-          <ul className="flex justify-center gap-6 text-[#E05A1E]">
-            <li><a href="/privacy.html" className="hover:underline">Privacy Policy</a></li>
-            <li><a href="/terms.html" className="hover:underline">Terms of Service</a></li>
-          </ul>
-          <address className="not-italic">920 Dolphin Dr, Upper Grand Lagoon, FL 32407</address>
-        </div>
+        <p className="mt-4 text-white/50">© {year} Orange Hat Marketing. All rights reserved.</p>
       </footer>
     </main>
   );
