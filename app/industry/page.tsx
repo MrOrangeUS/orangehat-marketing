@@ -27,8 +27,11 @@ export default function IndustriesPage() {
         background="rgb(0,0,0)"
       />
       <section className="relative z-10 max-w-5xl mx-auto px-6 py-12 text-center">
-        <h1 className="text-2xl md:text-5xl font-bold mb-6">Industries</h1>
-        <        <p className="text-lg md:text-xl text-white/85 mb-8 md:mb-8">If you rely on conversations → appointments → jobs, this system fits.p>
+     
+  <h1 className="text-2xl md:text-5xl font-bold mb-6">Industries</h1>
+     <p className="text-lg md:text-xl text-white/85 mb-8">If you rely on conversations → appointments → jobs, this system fits.</p>
+
+      
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           {industries.map((i) => (
             <div key={i.name} className="bg-[#151515] p-8 rounded-lg border border-white/10">
