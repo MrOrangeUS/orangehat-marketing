@@ -52,12 +52,11 @@ export default function SiteHeader({
         <Link href="/" className="flex items-center gap-3 min-w-0 max-w-[320px]">
           <img
             src="/orange-hat-header.png"
-            alt="OrangeHat logo"
-            /* Increase the size of the logo so it fills the available space in the header.
-               Using larger height/width values on both mobile and desktop ensures the logo
+alt="OrangeHat logo"
+            /* Increase the size of the logo so it fills the available space in the "OrangeHat logo"               Using larger height/width values on both mobile and desktop ensures the logo
                fits nicely within the designated area without leaving excess margin. */
-            className="h-14 w-14 sm:h-16 sm:w-16 object-contain shrink-0 block"
-            style={{ maxWidth: 64, maxHeight: 64 }}
+            className="h-14 sm:h-16 md:h-20 lg:h-24 xl:h-28 w-auto object-contain shrink-0 block"
+            
             loading="eager"
           />
           <div className="min-w-0 leading-tight">
