@@ -37,11 +37,9 @@ export default function IndustriesPage() {
   return (
     <main className="relative min-h-screen bg-[#050505] text-white overflow-hidden">
       {/* Background */}
-      <MatrixRain
-        color="#E05A1E"
-        glyph="01ΩΞ₪⛁∴"
-        className="pointer-events-none absolute inset-0 z-0"
-      />
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <MatrixRain color="#E05A1E" glyph="01ΩΞ₪⛁∴" />
+      </div>
 
       {/* Content */}
       <section className="relative z-10 px-6 py-12 text-center">
@@ -66,7 +64,7 @@ export default function IndustriesPage() {
           ))}
         </div>
 
-        {/* CTAs — FIXED */}
+        {/* CTAs */}
         <div className="mt-16 flex flex-col sm:flex-row justify-center gap-4 relative z-50">
           <a
             href={CTA_URL}
@@ -76,7 +74,6 @@ export default function IndustriesPage() {
           >
             Book a Strategy Call
           </a>
-
           <Link href="/solutions">
             <span className="oh-pill bg-transparent border border-[--oh-orange] text-[--oh-orange] hover:bg-[--oh-orange] hover:text-black transition-colors cursor-pointer">
               View Solutions
