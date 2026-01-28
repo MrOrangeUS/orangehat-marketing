@@ -3,7 +3,7 @@
 import Link from "next/link";
 import MatrixRain from "../../components/MatrixRain";
 
-const CTA_URL = "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z
+const CTA_URL = "https://api.leadconnectorhq.com/widget/booking/CPADDn4nnIu2we1sni9z";
 
 export default function AddOnsPage() {
   return (
