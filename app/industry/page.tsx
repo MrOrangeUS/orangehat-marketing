@@ -32,11 +32,11 @@ export default function IndustriesPage() {
 
  
 
-      <section className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+      <section className="relative z-10 max-w-5xl mx-auto px-6 py-12 text-center
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Industries</h1>
-        <p className="text-lg md:text-xl text-white/85 mb-14">
+        <p className="text-lg md:text-xl text-white/85 mbmb-mb-8
           If you rely on conversations → appointments → jobs, this system fits.
-        </p>
+        </ppy-12
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           {industries.map((i) => (
