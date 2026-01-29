@@ -21,26 +21,28 @@ export default function IndustriesPage() {
       <div className="pointer-events-none absolute inset-0 z-0">
         <MatrixRain color="#E05A1E" glyph="01ΩΞ₪⛁∴" />
       </div>
-
       {/* Content */}
       <section className="relative z-10 px-6 py-12 text-center">
         <h1 className="text-3xl md:text-5xl font-bold mb-6">Industries</h1>
         <p className="text-lg md:text-xl text-white/85 mb-8">
           If you rely on conversations → appointments → jobs, this system fits.
         </p>
-
         {/* Cards */}
         <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           {industries.map(({ name, desc }) => (
-            <div key={name} className="rounded-xl border border-white/10 bg-black/60 p-6">
-              <h3 className="text-xl font-semibold text-[--oh-orange] mb-2">{name}</h3>
+            <div
+              key={name}
+              className="rounded-xl border border-white/10 bg-black/60 p-6"
+            >
+              <h3 className="text-xl font-semibold text-[--oh-orange] mb-2">
+                {name}
+              </h3>
               <p className="text-white/80">{desc}</p>
             </div>
           ))}
         </div>
-
         {/* CTA buttons */}
-        <div className="mt-16 flex flex-col sm:flex-row justify-center gap-4 relative z-50">
+        <div className="mt-16 flex flex-col sm:flex-row justify-center gap-4 relative z-[9999]">
           <a
             href={CTA_URL}
             target="_blank"
