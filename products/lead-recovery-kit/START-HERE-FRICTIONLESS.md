@@ -65,7 +65,17 @@ Use `.md` files when you want to:
 - [ ] Confirm email/SMS sends successfully
 - [ ] Confirm appointment workflow triggers
 - [ ] Confirm dashboard shows new test lead data
-- [ ] If importing contacts, use the matching file in `/imports` (HubSpot, Salesforce, Pipedrive, Zoho, GoHighLevel, ActiveCampaign, Keap)
+- [ ] If importing contacts, use the matching file in `/imports` (see exact filenames below)
+
+## CRM import filenames
+- `imports/crm-import-hubspot-contacts.csv`
+- `imports/crm-import-salesforce-leads.csv`
+- `imports/crm-import-pipedrive-persons.csv`
+- `imports/crm-import-zoho-leads.csv`
+- `imports/crm-import-gohighlevel-contacts.csv`
+- `imports/crm-import-activecampaign-contacts.csv`
+- `imports/crm-import-keap-contacts.csv`
+- `imports/crm-import-generic-leads.csv`
 
 ## Need help?
 

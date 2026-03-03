@@ -39,10 +39,21 @@ You can open and edit it with common apps.
 6. `05-no-show-recovery.md`
 7. `08-kpi-tracker.csv` (open in Excel/Google Sheets)
 
-## About the `.csv` file
+## About the `.csv` files
 `08-kpi-tracker.csv` is a spreadsheet file.
 - Open with **Excel** or **Google Sheets**
 - Use it to track leads contacted, responses, bookings, and recovered revenue
+
+The `/imports` folder also includes CRM-ready CSVs for uploading contacts.
+Use the one that matches your CRM:
+- `imports/crm-import-hubspot-contacts.csv`
+- `imports/crm-import-salesforce-leads.csv`
+- `imports/crm-import-pipedrive-persons.csv`
+- `imports/crm-import-zoho-leads.csv`
+- `imports/crm-import-gohighlevel-contacts.csv`
+- `imports/crm-import-activecampaign-contacts.csv`
+- `imports/crm-import-keap-contacts.csv`
+- `imports/crm-import-generic-leads.csv`
 
 ## Want this in Google Docs format?
 You can import each file to Google Docs:

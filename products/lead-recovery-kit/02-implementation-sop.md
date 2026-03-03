@@ -12,7 +12,20 @@
 - [ ] Add 7-day sequence from 03
 - [ ] Import old leads for reactivation from 04
 - [ ] Add no-show flow from 05
+- [ ] Import contacts using matching `/imports` CSV template
 - [ ] Assign owner for daily KPI check
+
+## CRM import templates (recommended)
+- HubSpot: `imports/crm-import-hubspot-contacts.csv`
+- Salesforce: `imports/crm-import-salesforce-leads.csv`
+- Pipedrive: `imports/crm-import-pipedrive-persons.csv`
+- Zoho: `imports/crm-import-zoho-leads.csv`
+- GoHighLevel: `imports/crm-import-gohighlevel-contacts.csv`
+- ActiveCampaign: `imports/crm-import-activecampaign-contacts.csv`
+- Keap: `imports/crm-import-keap-contacts.csv`
+- Generic: `imports/crm-import-generic-leads.csv`
+
+Import tip: run a 1-contact test import first, verify field mapping, then import full list.
 
 ## Basic automation logic
 Trigger: inbound missed call
