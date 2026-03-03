@@ -1,39 +1,76 @@
-# Start Here (Frictionless)
+# START HERE — OrangeHat Lead Recovery Kit
 
-Welcome ? this kit is designed so you can launch fast even if you?ve never used Markdown files before.
+You don’t need to be technical to use this.
+This guide gives you the fastest path to get live and seeing leads move.
 
-## Fastest Path (Do This First)
-1. Open **START-HERE-FRICTIONLESS.pdf** (this file in PDF form).
-2. Open **00-quick-start.pdf** for the 30-minute launch checklist.
-3. Copy/paste scripts from:
-   - `01-missed-call-sms-scripts`
-   - `03-7-day-follow-up-sequence`
-   - `06-objection-replies`
-4. Implement workflow steps in `02-implementation-sop`.
-5. Track performance in `08-kpi-tracker.csv`.
+## What’s in this kit
 
-## If You?re Not Technical
-You can ignore `.md` files and use the PDF files included in this folder.
+You’ll find two types of files:
 
-## What Each Core File Does
-- **00-quick-start** ? immediate setup checklist
-- **02-implementation-sop** ? exact build steps
-- **01-missed-call-sms-scripts** ? ready-to-send SMS templates
-- **03-7-day-follow-up-sequence** ? follow-up cadence and copy
-- **04-old-lead-reactivation** ? revive cold leads
-- **05-no-show-recovery** ? recover missed appointments
-- **06-objection-replies** ? fast responses to common objections
-- **09-support-and-refund** ? customer support/refund handling
+1. **PDF files** → Easy-read, frictionless guides (open and follow)
+2. **.md files** → Editable templates/scripts (customize for your business)
 
-## How to Open the Editable Files (.md)
-- **Easiest:** Notion (import), Obsidian, Typora, or VS Code
-- **Also works:** Any basic text editor
+If you only want the simplest path: **use the PDFs first**.
 
-## Recommended 1-Day Implementation Plan
-- **Hour 1:** Set up missed-call auto-SMS + 7-day follow-up
-- **Hour 2:** Add no-show + old-lead reactivation
-- **Hour 3:** Load objection replies and support macros
-- **Hour 4:** Connect KPI tracker and test full flow
+## Fastest implementation path (3 days)
 
-## Need Help
+### Day 1 — Foundation (60–90 min)
+- Open the **Setup/Core PDF**
+- Connect your CRM/pipeline
+- Confirm your lead stages are correct
+- Verify email + SMS sending are active
+
+**Outcome:** System is connected and ready to run.
+
+### Day 2 — Messaging + Automations (60–120 min)
+- Open the **Outreach/Automation PDF**
+- Import/adapt message templates
+- Turn on key automations (new lead follow-up, no-response nudges, booking reminders)
+
+**Outcome:** Leads start receiving follow-up automatically.
+
+### Day 3 — Launch + Optimization (45–90 min)
+- Open the **Reporting/Optimization PDF**
+- Test the full lead flow from form submission to booking
+- Review dashboard metrics (response rate, booked calls, pipeline movement)
+
+**Outcome:** Live system with visibility and next-step optimization plan.
+
+## How to use the editable `.md` files
+
+Use any of these apps:
+- Notion
+- Obsidian
+- VS Code
+- Typora
+- Any plain text editor
+
+Use `.md` files when you want to:
+- Edit scripts/templates
+- Rename stages
+- Adapt workflows to your niche
+
+## Recommended order of docs
+
+1. START HERE (this file)
+2. Core Setup
+3. Outreach + Automation
+4. Pipeline + Reporting
+5. Advanced Optimizations
+
+## Before you go live (quick checklist)
+
+- [ ] Test lead form submission
+- [ ] Confirm lead enters correct pipeline stage
+- [ ] Confirm email/SMS sends successfully
+- [ ] Confirm appointment workflow triggers
+- [ ] Confirm dashboard shows new test lead data
+
+## Need help?
+
+If something breaks or doesn’t match your setup, start with:
+1. Re-checking Day 1 connections
+2. Running one fresh test lead end-to-end
+3. Updating templates before scaling volume
+
 Support: support@getorangehat.ai
