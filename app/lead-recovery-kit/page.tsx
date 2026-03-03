@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import MatrixRain from "../../components/MatrixRain";
 
 const KIT_LINK = "https://buy.stripe.com/9B6dR37M17ed0yj56Z9sk00";
 const SUB_LINK = "https://buy.stripe.com/bJe9ANgix8ih1Cn8jb9sk01";
@@ -17,7 +18,17 @@ const kitIncludes = [
 export default function LeadRecoveryKitPage() {
   return (
     <main className="text-white bg-[#050505] min-h-screen">
-      <section className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+      <MatrixRain
+        color="#E05A1E"
+        glyph="01ΩΞ₪⛁∴"
+        fontSize={12}
+        speed={0.1}
+        tailLength={16}
+        injectChance={0.008}
+        background="rgb(0,0,0)"
+      />
+
+      <section className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-24">
         <div className="inline-flex items-center rounded-full border border-white/15 px-3 py-1 text-xs tracking-widest uppercase text-white/65">
           OrangeHat Digital Product
         </div>
