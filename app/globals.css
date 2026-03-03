@@ -50,3 +50,14 @@ html, body { background: #0f0f0f; color: #fff; }
 .oh-pill:hover::before {
   transform: rotate(382deg);
 }
+
+/* Smaller pill for header CTA (keeps same style, tighter footprint) */
+.oh-pill--header {
+  /* Reduced padding to fit in header */
+  padding: 0.55rem 1.05rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  /* Soften box-shadow for header */
+  box-shadow: 0 6px 18px rgba(224,90,30,.35);
+}
+

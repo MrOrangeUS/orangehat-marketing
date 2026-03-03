@@ -1,0 +1,2 @@
+first_name,last_name,email,phone,company,lead_source,stage,tags,notes
+Jane,Doe,jane.doe@example.com,+15551234567,Acme Roofing,Facebook Ads,New Lead,"missed_call,high_intent",Called after hours; requested callback tomorrow.
