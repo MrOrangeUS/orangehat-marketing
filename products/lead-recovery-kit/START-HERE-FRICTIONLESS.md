@@ -65,6 +65,7 @@ Use `.md` files when you want to:
 - [ ] Confirm email/SMS sends successfully
 - [ ] Confirm appointment workflow triggers
 - [ ] Confirm dashboard shows new test lead data
+- [ ] If importing contacts, use the matching file in `/imports` (HubSpot, Salesforce, Pipedrive, Zoho, GoHighLevel, ActiveCampaign, Keap)
 
 ## Need help?
 
