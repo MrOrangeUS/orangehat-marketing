@@ -1,13 +1,13 @@
-# 04 — Old-Lead Reactivation Campaign
+ï»¿# 04 â€” Old-Lead Reactivation Campaign
 
 ## Segment
 Leads older than 30 days with no booking.
 
 ## SMS #1
-Hey {{first_name}} — this is {{business_name}}. We’re reopening a few spots for {{service_type}} this week. Want details?
+Hey {{first_name}} â€” this is {{business_name}}. Weâ€™re reopening a few spots for {{service_type}} this week. Want details?
 
 ## SMS #2 (48h later)
-Still interested in {{service_type}}? If yes, reply YES and I’ll send times.
+Still interested in {{service_type}}? If yes, reply YES and Iâ€™ll send times.
 
 ## SMS #3 (final)
 Last check-in from {{business_name}}. Want us to keep your file active? Reply 1 for yes.
@@ -15,3 +15,8 @@ Last check-in from {{business_name}}. Want us to keep your file active? Reply 1 
 ## Re-engagement handling
 - YES/1 => send booking link + tag `reactivated`
 - No reply => tag `inactive`
+
+## Need Help?
+- AI Support Agent: https://chatgpt.com/g/g-69a723f56cb48191a30a20d7cb9a70a0-orangehat-lead-recovery-kit-support-agent
+- Email Support: support@getorangehat.ai
+

@@ -1,4 +1,4 @@
-# OrangeHat Lead Recovery Kit - Quick Start
+﻿# OrangeHat Lead Recovery Kit - Quick Start
 
 Welcome. This kit is designed to help local service businesses recover missed revenue from existing leads in under 24 hours.
 
@@ -28,3 +28,8 @@ Welcome. This kit is designed to help local service businesses recover missed re
 
 Support: support@getorangehat.ai
 Refund policy: 3-day refund window from purchase date.
+
+## Need Help?
+- AI Support Agent: https://chatgpt.com/g/g-69a723f56cb48191a30a20d7cb9a70a0-orangehat-lead-recovery-kit-support-agent
+- Email Support: support@getorangehat.ai
+

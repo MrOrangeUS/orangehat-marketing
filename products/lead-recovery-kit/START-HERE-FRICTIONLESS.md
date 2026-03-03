@@ -1,20 +1,20 @@
-# START HERE — OrangeHat Lead Recovery Kit
+﻿# START HERE â€” OrangeHat Lead Recovery Kit
 
-You don’t need to be technical to use this.
+You donâ€™t need to be technical to use this.
 This guide gives you the fastest path to get live and seeing leads move.
 
-## What’s in this kit
+## Whatâ€™s in this kit
 
-You’ll find two types of files:
+Youâ€™ll find two types of files:
 
-1. **PDF files** → Easy-read, frictionless guides (open and follow)
-2. **.md files** → Editable templates/scripts (customize for your business)
+1. **PDF files** â†’ Easy-read, frictionless guides (open and follow)
+2. **.md files** â†’ Editable templates/scripts (customize for your business)
 
 If you only want the simplest path: **use the PDFs first**.
 
 ## Fastest implementation path (3 days)
 
-### Day 1 — Foundation (60–90 min)
+### Day 1 â€” Foundation (60â€“90 min)
 - Open the **Setup/Core PDF**
 - Connect your CRM/pipeline
 - Confirm your lead stages are correct
@@ -22,14 +22,14 @@ If you only want the simplest path: **use the PDFs first**.
 
 **Outcome:** System is connected and ready to run.
 
-### Day 2 — Messaging + Automations (60–120 min)
+### Day 2 â€” Messaging + Automations (60â€“120 min)
 - Open the **Outreach/Automation PDF**
 - Import/adapt message templates
 - Turn on key automations (new lead follow-up, no-response nudges, booking reminders)
 
 **Outcome:** Leads start receiving follow-up automatically.
 
-### Day 3 — Launch + Optimization (45–90 min)
+### Day 3 â€” Launch + Optimization (45â€“90 min)
 - Open the **Reporting/Optimization PDF**
 - Test the full lead flow from form submission to booking
 - Review dashboard metrics (response rate, booked calls, pipeline movement)
@@ -68,9 +68,14 @@ Use `.md` files when you want to:
 
 ## Need help?
 
-If something breaks or doesn’t match your setup, start with:
+If something breaks or doesnâ€™t match your setup, start with:
 1. Re-checking Day 1 connections
 2. Running one fresh test lead end-to-end
 3. Updating templates before scaling volume
 
 Support: support@getorangehat.ai
+
+## Need Help?
+- AI Support Agent: https://chatgpt.com/g/g-69a723f56cb48191a30a20d7cb9a70a0-orangehat-lead-recovery-kit-support-agent
+- Email Support: support@getorangehat.ai
+

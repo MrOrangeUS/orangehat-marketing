@@ -1,4 +1,4 @@
-# 02 � Implementation SOP (1-Hour Setup)
+﻿# 02 — Implementation SOP (1-Hour Setup)
 
 ## Inputs you need
 - Business name
@@ -24,3 +24,8 @@ Trigger: inbound missed call
 ## SLA rules
 - Response to engaged leads in <5 min
 - Escalate `hot lead` tag to owner immediately
+
+## Need Help?
+- AI Support Agent: https://chatgpt.com/g/g-69a723f56cb48191a30a20d7cb9a70a0-orangehat-lead-recovery-kit-support-agent
+- Email Support: support@getorangehat.ai
+

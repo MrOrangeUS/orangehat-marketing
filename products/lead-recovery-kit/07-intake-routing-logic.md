@@ -1,4 +1,4 @@
-# 07 � Intake Routing Logic
+﻿# 07 — Intake Routing Logic
 
 ## Lead tags
 - hot: asked for times/quote now
@@ -15,3 +15,8 @@
 2. Booking rate
 3. No-show recovery rate
 4. Reactivation conversion
+
+## Need Help?
+- AI Support Agent: https://chatgpt.com/g/g-69a723f56cb48191a30a20d7cb9a70a0-orangehat-lead-recovery-kit-support-agent
+- Email Support: support@getorangehat.ai
+

@@ -1,6 +1,6 @@
-# How to Use This Kit (Non-Technical)
+﻿# How to Use This Kit (Non-Technical)
 
-If you're not familiar with `.md` files, no problem — these are just text documents.
+If you're not familiar with `.md` files, no problem â€” these are just text documents.
 
 ## What is a `.md` file?
 A `.md` (Markdown) file is like a normal note or Word document, but plain text.
@@ -51,3 +51,8 @@ You can import each file to Google Docs:
 - Open with Google Docs
 
 Support: support@getorangehat.ai
+
+## Need Help?
+- AI Support Agent: https://chatgpt.com/g/g-69a723f56cb48191a30a20d7cb9a70a0-orangehat-lead-recovery-kit-support-agent
+- Email Support: support@getorangehat.ai
+

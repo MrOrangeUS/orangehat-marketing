@@ -1,4 +1,4 @@
-# 03 — 7-Day Follow-Up Sequence (SMS + Email)
+ï»¿# 03 â€” 7-Day Follow-Up Sequence (SMS + Email)
 
 ## Day 0 (SMS)
 Hey {{first_name}}, this is {{rep_name}} at {{business_name}}. Want help with {{service_type}} this week?
@@ -12,10 +12,15 @@ Can I send you 2 available times for {{service_type}}?
 
 ## Day 3 (Email)
 Subject: Still interested?
-Body: If timing is bad, no worries. Reply "later" and we’ll follow up next month.
+Body: If timing is bad, no worries. Reply "later" and weâ€™ll follow up next month.
 
 ## Day 5 (SMS)
-We’re finalizing this week’s schedule — want me to hold a spot?
+Weâ€™re finalizing this weekâ€™s schedule â€” want me to hold a spot?
 
 ## Day 7 (SMS)
-Closing this request for now. If you still want help, reply START and we’ll reopen right away.
+Closing this request for now. If you still want help, reply START and weâ€™ll reopen right away.
+
+## Need Help?
+- AI Support Agent: https://chatgpt.com/g/g-69a723f56cb48191a30a20d7cb9a70a0-orangehat-lead-recovery-kit-support-agent
+- Email Support: support@getorangehat.ai
+
